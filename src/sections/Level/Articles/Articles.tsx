@@ -7,6 +7,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { useContext } from "react"
 import { ThemeContext } from "styled-components"
+import './styles/styles.scss';
 
 export const Articles = ({ articles_list }) => {
   const [scrollPostion, setScrollPostion] = useState(0)
@@ -51,14 +52,14 @@ export const Articles = ({ articles_list }) => {
     require.context("./static", false, /\.(png|jpe?g|svg)$/)
   )
 
-  // useEffect(() => {
-  //   if (window.innerWidth > themeContext.screen.md) {
-  //     document.addEventListener("scroll", listenToScrollEvent)
-  //   }
-  //   return () => {
-  //     document.removeEventListener("scroll", listenToScrollEvent)
-  //   }
-  // })
+  useEffect(() => {
+    if (window.innerWidth > themeContext.screen.md) {
+      document.addEventListener("scroll", listenToScrollEvent)
+    }
+    return () => {
+      document.removeEventListener("scroll", listenToScrollEvent)
+    }
+  })
 
   const listenToScrollEvent = () => {
     requestAnimationFrame(() => {
@@ -92,7 +93,7 @@ export const Articles = ({ articles_list }) => {
     <Row>
       <Col lg={{ span: 23 }} md={{ span: 24 }}>
         <Row gutter={[16, 24]}>
-          <Col lg={{ span: 5 }} md={{ span: 0 }} xs={{ span: 0 }}></Col>
+          <Col lg={{ span: 4 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
           <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
             <Title>Concept</Title>
           </Col>
@@ -103,7 +104,7 @@ export const Articles = ({ articles_list }) => {
             <Title>Coin</Title>
           </Col>
         </Row>
-        <Row gutter={[16, 24]} justify="center">
+        <Row gutter={[16, 24]} justify="start" className={'tableContent'}>
           {articles.map((article, i) => (
             <>
               {i % 3 === 0 && (

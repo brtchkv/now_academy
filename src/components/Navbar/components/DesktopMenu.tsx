@@ -52,17 +52,16 @@ export const DesktopMenu: React.FunctionComponent = () => {
 					onSearch={async (value) => {
 						await navigate('/search', {state: { search: value}})
 					}}
-					style={{ width: 260 }}
 				/>
 			</StyledMenuItemWithoutBorder>
 
-			<StyledMenuItem key="level" style={{float: 'right'}}>
+			{/* <StyledMenuItem key="level" style={{float: 'right'}}>
 				<StyledDropdown overlay={menu} placement={'bottomCenter'}>
 					<StyledA onClick={e => e.preventDefault()}>
 						Your level <DownOutlined />
 					</StyledA>
 				</StyledDropdown>
-			</StyledMenuItem>
+			</StyledMenuItem> */}
 
 			{
 				slugAndTextList.map(([slug, text]) => (
@@ -98,6 +97,10 @@ const StyledSearch = styled(Search)`
   background: ${({theme}) => theme.color.blue.regular};
   flex-direction: row-reverse;
   border-radius: 0;
+  vertical-align: middle;
+  width: 365px;
+  height: 51px;
+  padding: 0;
   
   .ant-input {
 	&::placeholder {
@@ -149,17 +152,18 @@ const StyledMenu = styled(Menu)`
 `;
 
 const StyledMenuItem = styled(Menu.Item)`
-	padding: 0 6px;
 	margin: 0 14px;
+	padding: 0;
 	& a {
 		color: #fff!important;
 	}
 `;
 
 const StyledMenuItemWithoutBorder = styled(Menu.Item)`
-	padding: 0 6px;
 	margin: 0 14px;
     border-bottom: 0px!important;
+	display: table-cell;
+	padding: 0;
 
 	& a {
 		color: #fff!important;

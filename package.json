@@ -8,7 +8,7 @@
     "antd": "^4.3.5",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.21.28",
+    "gatsby": "^2.25.0",
     "gatsby-image": "^2.4.3",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -16,6 +16,7 @@
     "gatsby-plugin-manifest": "^2.4.3",
     "gatsby-plugin-offline": "^3.2.2",
     "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-sass": "^3.1.0",
     "gatsby-plugin-sharp": "^2.6.3",
     "gatsby-plugin-styled-components": "^3.3.5",
     "gatsby-source-filesystem": "^2.3.3",
@@ -23,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.5.2",
     "less": "^3.11.3",
     "moment": "^2.25.3",
+    "node-sass": "^5.0.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -35,7 +37,8 @@
     "serialize-javascript": "^3.0.0",
     "showdown": "^1.9.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "swiper": "^6.4.10"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

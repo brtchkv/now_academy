@@ -7,44 +7,88 @@ import beginner from "./static/beginner.svg"
 import advanced from "./static/advanced.svg"
 import intermediate from "./static/intermediate.svg"
 import { Link } from "gatsby"
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import { useContext } from "react"
+import { ThemeContext } from "styled-components"
+
+import { Swiper, SwiperSlide } from "swiper/react"
+
+// Import Swiper styles
+import "swiper/swiper.scss"
+import "swiper/components/navigation/navigation.scss"
+import "swiper/components/pagination/pagination.scss"
+import "swiper/components/scrollbar/scrollbar.scss"
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 export const ChooseLevel: React.FunctionComponent = () => {
+  const themeContext = useContext(ThemeContext)
   return (
-    <>
-      <Row style={{ marginBottom: 20 }}>
-        <Col md={8} xs={24} style={{ padding: ".5rem" }}>
-          <Link to={"/beginner-level"}>
-            <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
-              <LevelName>Beginner</LevelName>
+    <Row style={{ marginBottom: 10 }}>
+      <Slider
+        spaceBetween={10}
+		slidesPerView={3}
+		pagination={{
+			clickable: true,
+		}}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          575: {
+            slidesPerView: 2,
+          },
+          767: {
+            slidesPerView: 3,
+		  },
+		}}
+      >
+        <SwiperSlide>
+          <Col md={24} xs={24}>
+            <Link to={"/beginner-level"}>
+              <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
+                <LevelName>Beginner</LevelName>
+                <CardDescription>
+                  Introduction to crypto: basic concepts, foundational tech,
+                  renowned projects, and popular coins.
+                </CardDescription>
+                <ActionButton>Start learning</ActionButton>
+              </LeftCard>
+            </Link>
+          </Col>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Col md={24} xs={24}>
+            <Link to={"/intermediate-level"}>
+              <CenterCard
+                bordered={false}
+                cover={<CardImg src={intermediate} />}
+              >
+                <LevelName>Intermediate</LevelName>
+                <CardDescription>
+                  A closer look at decentralized finance, complex tech used in
+                  crypto, digital markets, and trading.
+                </CardDescription>
+                <ActionButton>Start learning</ActionButton>
+              </CenterCard>
+            </Link>
+          </Col>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Col md={24} xs={24}>
+            <RightCard bordered={false} cover={<CardImg src={advanced} />}>
+              <LevelName>Advanced</LevelName>
               <CardDescription>
-			  Introduction to crypto: basic concepts, foundational tech, renowned projects, and popular coins.
+                An in-depth review of processes, phenomena, and events related
+                to the crypto industry.
               </CardDescription>
               <ActionButton>Start learning</ActionButton>
-            </LeftCard>
-          </Link>
-        </Col>
-        <Col md={8} xs={24} style={{ padding: ".5rem" }}>
-          <Link to={"/intermediate-level"}>
-            <CenterCard bordered={false} cover={<CardImg src={intermediate} />}>
-              <LevelName>Intermediate</LevelName>
-              <CardDescription>
-			  A closer look at decentralized finance, complex tech used in crypto, digital markets, and trading.
-              </CardDescription>
-              <ActionButton>Start learning</ActionButton>
-            </CenterCard>
-          </Link>
-        </Col>
-        <Col md={8} xs={24} style={{ padding: ".5rem" }}>
-          <RightCard bordered={false} cover={<CardImg src={advanced} />}>
-            <LevelName>Advanced</LevelName>
-            <CardDescription>
-			An in-depth review of processes, phenomena, and events related to the crypto industry.
-            </CardDescription>
-            <ActionButton>Start learning</ActionButton>
-          </RightCard>
-        </Col>
-      </Row>
-    </>
+            </RightCard>
+          </Col>
+        </SwiperSlide>
+      </Slider>
+    </Row>
   )
 }
 
@@ -53,6 +97,19 @@ const LevelName = styled.p`
   line-height: 26px;
   color: #ffffff;
   font-weight: lighter;
+`
+
+const Slider = styled(Swiper)`
+  padding-bottom: 2rem;
+  & .swiper-pagination-bullets {
+    bottom: -5px;
+    .swiper-pagination-bullet-active {
+      background-color: ${({ theme }) => theme.color.green.regular};
+    }
+	@media (min-width: ${({ theme }) => theme.screen.sm}) {
+    	display: none;
+  	}
+  }
 `
 
 const CardImg = styled.img`
