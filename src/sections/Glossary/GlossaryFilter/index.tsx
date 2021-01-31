@@ -1,0 +1,1 @@
+export { GlossaryFilter } from './GlossaryFilter';

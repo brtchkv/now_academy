@@ -1,0 +1,1 @@
+export { GlossaryList } from './GlossaryList';

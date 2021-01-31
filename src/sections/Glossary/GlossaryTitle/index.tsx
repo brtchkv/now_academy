@@ -1,0 +1,1 @@
+export { GlossaryTitle } from './GlossaryTitle';
