@@ -28,10 +28,10 @@ export const ChooseLevel: React.FunctionComponent = () => {
     <Row style={{ marginBottom: 10 }}>
       <Slider
         spaceBetween={10}
-		slidesPerView={3}
-		pagination={{
-			clickable: true,
-		}}
+        slidesPerView={3}
+        pagination={{
+          clickable: true,
+        }}
         breakpoints={{
           0: {
             slidesPerView: 1,

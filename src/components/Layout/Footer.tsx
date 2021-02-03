@@ -103,11 +103,12 @@ const Copyright = styled.p`
 	font-size: 18px;
 	display: inline-block;
 	line-height: 14px;
+	@media (max-width: ${props => props.theme.screen.xs}) {
+		line-height: 27px;
+	}
 	@media (max-width: ${props => props.theme.screen.md}) {
     	margin-top: 15px;
     	margin-bottom: 5px;
-  	}
-	  @media (max-width: ${props => props.theme.screen.md}) {
 		justify-content: center;
   	}
 `;
