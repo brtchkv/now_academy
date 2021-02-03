@@ -17,10 +17,7 @@ export const Header: React.FunctionComponent = () => {
 
 const StyledH1 = styled.h1`
 	font-weight: lighter;
-	font-size: 36px;
+	font-size: 43px;
 	line-height: 140%;
 	color: #FFFFFF;
-	@media (max-width: ${({ theme }) => theme.screen.md}) {
-    	padding-left: 1rem;
-  	}
 `;

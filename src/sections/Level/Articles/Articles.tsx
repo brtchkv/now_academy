@@ -53,7 +53,7 @@ export const Articles = ({ articles_list }) => {
   )
 
   useEffect(() => {
-    if (window.innerWidth > themeContext.screen.md) {
+    if (window.innerWidth > 1024) {
       document.addEventListener("scroll", listenToScrollEvent)
     }
     return () => {
@@ -108,7 +108,7 @@ export const Articles = ({ articles_list }) => {
           {articles.map((article, i) => (
             <>
               {i % 3 === 0 && (
-                <Col
+                <ColSpanWrapper
                   lg={{ span: 4 }}
                   style={{ alignSelf: "center" }}
                   key={`title__${i}`}
@@ -116,7 +116,7 @@ export const Articles = ({ articles_list }) => {
                   xs={{ span: 24 }}
                 >
                   <Title>Step {i / 3 + 1}</Title>
-                </Col>
+                </ColSpanWrapper>
               )}
               <CardWrapper>
                 <Col key={`article__${i}`} lg={{ span: 24 }} style={{ padding: 0 }} >
@@ -143,13 +143,16 @@ export const Articles = ({ articles_list }) => {
 const ArticleTitle = styled.div`
   margin: auto;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   color: #fff;
 `
 
 const CardWrapper = styled.div`
   padding: 12px 8px;
+  @media (max-width: ${({ theme }) => theme.screen.xs}) {
+    width: 100%;
+  }
 `
 
 const AricleImg = styled.div`
@@ -171,7 +174,7 @@ const AricleImg = styled.div`
     height: 139px;
   }
   @media (max-width: ${({ theme }) => theme.screen.xs}) {
-    width: 226px;
+    width: 100%;
     height: 57px;
   }
 `
@@ -232,6 +235,14 @@ const ProgressLine = styled.div`
   left: auto;
 `
 
+const ColSpanWrapper = styled(Col)`
+  align-self: center;
+  @media (max-width: ${({ theme }) => theme.screen.xs}) {
+    margin-right: "auto";
+    width: "100%";
+  }
+`
+
 const Progress = styled.div`
   background: linear-gradient(
     to bottom,
@@ -256,4 +267,7 @@ const Title = styled.div`
   text-transform: uppercase;
   color: ${({ theme }) => theme.color.green.regular};
   align-self: center;
+  @media (max-width: ${({ theme }) => theme.screen.xs}) {
+    text-align: left;
+  }
 `

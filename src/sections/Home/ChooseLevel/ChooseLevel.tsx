@@ -93,7 +93,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
 }
 
 const LevelName = styled.p`
-  font-size: 22px;
+  font-size: 32px;
   line-height: 26px;
   color: #ffffff;
   font-weight: lighter;
@@ -186,7 +186,7 @@ const LevelCard = styled(Card)`
 const CardDescription = styled.p`
   line-height: 1.5715;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 18px;
   min-height: 126px;
 `
 

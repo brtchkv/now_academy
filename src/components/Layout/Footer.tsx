@@ -100,7 +100,7 @@ const ChangeNowLogo = styled.img`
 
 const Copyright = styled.p`
 	font-weight: 300;
-	font-size: 14px;
+	font-size: 18px;
 	display: inline-block;
 	line-height: 14px;
 	@media (max-width: ${props => props.theme.screen.md}) {
@@ -113,7 +113,7 @@ const Copyright = styled.p`
 `;
 
 const SectionName = styled.p`
-	font-size: 13px;
+	font-size: 14px;
 	letter-spacing: 0.2px;
 	color: #FFFFFF;
 	line-height: 2;
@@ -128,7 +128,7 @@ const SectionName = styled.p`
 `;
 
 const StyledLink = styled(Link)`
-	font-size: 15px;
+	font-size: 18px;
 	display: block;
 	color: #FFFFFF;
 	line-height: 2;
@@ -139,7 +139,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledHref = styled.a`
-	font-size: 15px;
+	font-size: 18px;
 	display: block;
 	color: #FFFFFF;
 	line-height: 2;
@@ -150,7 +150,7 @@ const StyledHref = styled.a`
 `;
 
 const StyledHrefToken = styled.a`
-	font-size: 15px;
+	font-size: 18px;
 	display: block;
 	line-height: 2;
 	font-weight: lighter;

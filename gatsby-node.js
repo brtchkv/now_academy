@@ -20,10 +20,6 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               slug
             }
-            articles {
-              title
-              slug
-            }
             shortDescription
             description
           }

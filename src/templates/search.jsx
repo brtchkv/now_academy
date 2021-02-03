@@ -92,10 +92,6 @@ export const query = graphql`
           name
           slug
         }
-        articles {
-          title
-          slug
-        }
       }
     }
   }

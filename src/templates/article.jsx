@@ -94,26 +94,6 @@ export const query = graphql`
                 }
             }
         }
-
-        allStrapiTerm(filter: {articles: {elemMatch: {id: {eq: $id}}}}) {
-            nodes {
-                id
-                name
-                description
-                shortDescription
-                term_type {
-                    name
-                }
-                level {
-                    name
-		                slug
-                }
-                articles {
-                    title
-                    slug
-                }
-            }
-        }
     }
 `;
 
