@@ -100,16 +100,18 @@ const ChangeNowLogo = styled.img`
 
 const Copyright = styled.p`
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 14px;
 	display: inline-block;
 	line-height: 14px;
 	@media (max-width: ${props => props.theme.screen.xs}) {
 		line-height: 27px;
+		font-size: 18px;
 	}
 	@media (max-width: ${props => props.theme.screen.md}) {
     	margin-top: 15px;
     	margin-bottom: 5px;
 		justify-content: center;
+		font-size: 18px;
   	}
 `;
 

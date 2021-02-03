@@ -187,7 +187,7 @@ const CardDescription = styled.p`
   line-height: 1.5715;
   font-weight: lighter;
   font-size: 18px;
-  min-height: 126px;
+  min-height: 115px;
 `
 
 const CommingSoon = styled.div`

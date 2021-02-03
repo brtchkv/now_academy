@@ -40,14 +40,14 @@ export const Navbar: React.FunctionComponent = () => {
 
 					<Col lg={{span: 0}} xs={{span: 24}}>
 						<Row justify="center">
-							<Col xs={3}>
-								<MenuOutlined style={{color: '#fff', fontSize: '25px'}} onClick={showDrawer}/>
-							</Col>
+							<StyledCol xs={3}>
+								<MenuOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center',}} onClick={showDrawer}/>
+							</StyledCol>
 							<StyledCol xs={18}>
 								<Logo/>
 							</StyledCol>
 							<StyledCol xs={3}>
-								<SearchOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto'}} onClick={showSearch}/>
+								<StyledSearchOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto'}} onClick={showSearch}/>
 							</StyledCol>
 						</Row>
 					</Col>
@@ -71,7 +71,7 @@ const StyledCol = styled(Col)`
 	display: flex;
 `;
 
-const StyledCol = styled(SearchOutlined)`
+const StyledSearchOutlined = styled(SearchOutlined)`
 	color: '#fff'; 
 	font-size: '25px'; 
 	align-self: 'center';
