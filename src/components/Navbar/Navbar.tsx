@@ -31,7 +31,7 @@ export const Navbar: React.FunctionComponent = () => {
 		setSearchVisible(false);
 	};
 	return (
-		<div style={{maxWidth: '100%', backgroundColor: '#2B2B36' }}>
+		<StyledNav>
 			<Container>
 				<Header className="before-navbar">
 					<Col lg={{ span: 24 }} xs={{ span: 0 }}>
@@ -53,19 +53,26 @@ export const Navbar: React.FunctionComponent = () => {
 					</Col>
 
 					<Drawer
-						placement="right"
+						placement="left"
 						drawerStyle={{backgroundColor: '#2B2B36' }}
-						closable={false}
+						closable={true}
 						onClose={onCloseDrawer}
 						visible={isDrawerVisible}
+						width={'100%'}
+						bodyStyle={{padding: '3.2rem'}}
 					>
 						<MobileMenu/>
 					</Drawer>
 				</Header>
 			</Container>
-		</div>
+		</StyledNav>
 	);
 };
+
+const StyledNav = styled.div`
+	max-width: '100%';
+	background-color: '#2B2B36';
+`;
 
 const StyledCol = styled(Col)`
 	display: flex;
@@ -77,3 +84,6 @@ const StyledSearchOutlined = styled(SearchOutlined)`
 	align-self: 'center';
 	margin-left: 'auto'
 `;
+const StyledDrawer = styled(Drawer)`
+	padding: 3.2rem;
+`

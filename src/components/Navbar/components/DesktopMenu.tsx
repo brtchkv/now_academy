@@ -56,14 +56,6 @@ export const DesktopMenu: React.FunctionComponent = () => {
         />
       </StyledMenuItemWithoutBorder>
 
-      {/* <StyledMenuItem key="level" style={{float: 'right'}}>
-				<StyledDropdown overlay={menu} placement={'bottomCenter'}>
-					<StyledA onClick={e => e.preventDefault()}>
-						Your level <DownOutlined />
-					</StyledA>
-				</StyledDropdown>
-			</StyledMenuItem> */}
-
       {slugAndTextList.map(([slug, text]) => (
         <StyledMenuItem key={slug} style={{ float: "right" }}>
           <StyledLink to={`/${slug}`}>{text}</StyledLink>

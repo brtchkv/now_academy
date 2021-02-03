@@ -72,7 +72,7 @@ export const FooterLayout: React.FunctionComponent = () => (
 						<StyledHrefToken target='_blank'>NOW Token</StyledHrefToken>
 					</Col>
 					<Col span={8}>
-						<SectionName>Products</SectionName>
+						<SectionName>Company</SectionName>
 						<StyledHref target='_blank' href='https://changenow.io/terms-of-use'>Terms of Use</StyledHref>
 						<StyledHref target='_blank' href='https://changenow.io/privacy-policy'>Privacy Policy</StyledHref>
 						<StyledHref target='_blank'>Corporate responsibility</StyledHref>
