@@ -6,7 +6,7 @@ import { Layout } from '@components/Layout';
 import { GlossaryList } from '@glossary/GlossaryList';
 import { GlossaryTitle } from '@glossary/GlossaryTitle';
 import { GlossarySections } from '@glossary/GlossarySections';
-import { GlossaryFilter } from '@glossary/GlossaryFilter';
+import { GlossaryBreadcrumbs } from '@glossary/GlossaryBreadcrumbs';
 
 import {
 	Section,
@@ -33,24 +33,20 @@ const Glossary = (props) => {
 			<Section>
 				<Container>
 					<MarginBottom>
-						<GlossaryFilter terms={terms} level={level} type={type}/>
+						<GlossaryBreadcrumbs terms={terms} level={level || {slug:'/glossary', name:'Glossary'}} type={type}/>
 					</MarginBottom>
 					<MarginBottom>
 						<GlossaryTitle/>
 					</MarginBottom>
 					<Row>
-						<Col md={15}>
-							<MarginBottom>
-								<GlossaryList termIdsByLevelName={termIdsByLevelName} termById={termById} level={level} type={type}/>
-							</MarginBottom>
-							{/*<MarginBottom>*/}
-							{/*	<ArticleSections sections={sections}/>*/}
-							{/*</MarginBottom>*/}
-						</Col>
-
-						<Col md={6} offset={3}>
+						<Col md={24}>
 							<MarginBottom>
 								<GlossarySections level={level}/>
+							</MarginBottom>
+						</Col>
+						<Col md={24}>
+							<MarginBottom>
+								<GlossaryList termIdsByLevelName={termIdsByLevelName} termById={termById} level={level} type={type}/>
 							</MarginBottom>
 						</Col>
 					</Row>

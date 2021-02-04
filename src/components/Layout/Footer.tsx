@@ -190,14 +190,19 @@ const StyledFooter = styled(Footer)`
     padding: 1.3rem;
     flex-flow: row;
   }
+  
   width: 100% !important;
   margin: 0 auto;
+  padding: 24px 50px;
 
   @media (min-width: 1024px) {
     max-width: 960px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   @media (min-width: 1216px) {
-    max-width: 1152px;
+	max-width: 1152px;
+	padding: 24px 50px;
   }
   @media (min-width: 1408px) {
     max-width: 1344px;

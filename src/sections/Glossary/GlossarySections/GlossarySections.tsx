@@ -8,22 +8,36 @@ export const GlossarySections = ({ level }) => {
 	const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
 	return (
-		<>
+		<StyledGlossaryList>
 			{!level && (
-				<StyledAnchor affix={false}>
+				<StyledAnchor affix={false} showInkInFixed={false}>
 					{alphabet.map((letter) => (
 						<StyledLink key={letter} href={`#${letter}`} title={letter} />
 					))}
 				</StyledAnchor>
 			)}
-		</>
+		</StyledGlossaryList>
 	)
 };
+
+const StyledGlossaryList = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
 
 const StyledAnchor = styled(Anchor)`
 	background: ${({ theme }) => theme.color.blue.dark};
 	color: #fff;
-	max-height: 100%!important;
+	max-height: 100% !important;
+	& .ant-anchor {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	& .ant-anchor-ink {
+		display: none;
+	}
 `;
 
 const StyledLink = styled(Link)`

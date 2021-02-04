@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useRef } from 'react';
 
 import { TermsModal } from '@components/Modal/TermsModal';
+import plus from "./assets/plus.svg";
 
 export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevelName, level, type }) => {
 	const childRef = useRef();
@@ -19,9 +20,12 @@ export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevel
 						{name}
 					</TermName>
 				</Col>
-				<Col md={19}>
+				<Col md={17}>
 					<TermDescription dangerouslySetInnerHTML={{ __html: shortDescription }}/>
 				</Col>
+				<StyledCol md={0} lg={2} xs={0}>
+					<img src={plus}/>
+				</StyledCol>
 			</StyledRow>
 		))
 	};
@@ -74,23 +78,25 @@ export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevel
 	);
 };
 
+const StyledCol = styled(Col)`
+	text-align: end;
+	margin: auto;
+`
 const MarginBottom = styled.div`
 	margin-bottom: 30px;
 `;
 
 const Letter = styled.p`
-	background: #00C26F;
+	color: ${({ theme }) => theme.color.green.regular};
 	font-weight: 900;
 	display: inline-block;
-	border-radius: 3px;
 	padding: 5px 10px;
 `;
 
 const StyledRow = styled(Row)`
 	padding: 24px;
-	border-radius: 8px;
-	background: rgba(97, 97, 116, 0.07);
 	margin-bottom: 10px;
+	border: 1px solid${({ theme }) => theme.color.blue.regular};
 
 	&:hover {
     cursor: pointer;
@@ -99,14 +105,18 @@ const StyledRow = styled(Row)`
 `;
 
 const TermName = styled.p`
-	font-weight: 500;
+	font-style: normal;
+	font-weight: normal;
 	font-size: 18px;
-	line-height: 21px;
+	line-height: 27px;
 	color: #FFFFFF;
 `;
 
 const TermDescription = styled.p`
 	font-size: 16px;
-	line-height: 150%;
-	color: #FFFFFF;
+	color: ${({ theme }) => theme.color.gray.regular};
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 27px;
 `;

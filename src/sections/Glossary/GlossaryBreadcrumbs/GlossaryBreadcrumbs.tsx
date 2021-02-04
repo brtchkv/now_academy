@@ -17,9 +17,6 @@ export const GlossaryBreadcrumbs: React.FunctionComponent = ({ level, title }) =
 				<Breadcrumb.Item>
 					<Link to={`/${level.slug}`}>{level.name}</Link>
 				</Breadcrumb.Item>
-				<Breadcrumb.Item>
-					<span>{title}</span>
-				</Breadcrumb.Item>
 			</StyledBreadcrumb>
 			<NavigationArticles>
 				{/* {prevLesson}
