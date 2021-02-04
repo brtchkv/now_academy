@@ -88,7 +88,7 @@ const StyledArrowLeftOutlined = styled(ArrowLeftOutlined)`
     
     @media (max-width: ${props => props.theme.screen.sm}) {
 	    display: none!important;
-	  }
+	}
 `;
 
 const StyledArrowRightOutlined = styled(ArrowRightOutlined)`

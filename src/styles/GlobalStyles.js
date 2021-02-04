@@ -582,6 +582,10 @@ img:hover {
     border-radius: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 background: ${({theme}) => theme.color.blue.regular};
 
 `;

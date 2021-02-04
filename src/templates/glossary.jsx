@@ -27,26 +27,31 @@ const Glossary = (props) => {
 		acc[level.name] = level.terms.map(term => term.id);
 		return acc;
 	}, {});
-	console.log(location);
 	return (
 		<Layout>
 			<Section>
 				<Container>
-					<MarginBottom>
-						<GlossaryBreadcrumbs terms={terms} level={level || {slug:'/glossary', name:'Glossary'}} type={type}/>
-					</MarginBottom>
-					<MarginBottom>
-						<GlossaryTitle/>
-					</MarginBottom>
 					<Row>
-						<Col md={24}>
+						<Col md={24} lg={24} xs={0}>
 							<MarginBottom>
-								<GlossarySections level={level}/>
+								<GlossaryBreadcrumbs terms={terms} level={level || { slug: '/glossary', name: 'Glossary' }} type={type} />
 							</MarginBottom>
 						</Col>
-						<Col md={24}>
+						<Col span={24}>
 							<MarginBottom>
-								<GlossaryList termIdsByLevelName={termIdsByLevelName} termById={termById} level={level} type={type}/>
+								<GlossaryTitle />
+							</MarginBottom>
+						</Col>
+					</Row>
+					<Row>
+						<Col md={24} xs={0}>
+							<MarginBottom>
+								<GlossarySections level={level} />
+							</MarginBottom>
+						</Col>
+						<Col span={24}>
+							<MarginBottom>
+								<GlossaryList termIdsByLevelName={termIdsByLevelName} termById={termById} level={level} type={type} />
 							</MarginBottom>
 						</Col>
 					</Row>
