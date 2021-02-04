@@ -48,9 +48,7 @@ const StyledLink = styled(Link)`
 		display: inline-block;
 
 		&:hover {
-	    background-color: #00C26F;
-	    border-radius: 3px;
-	    color: #fff;
+		color: ${({ theme }) => theme.color.green.regular};
     }
 	}
 `;

@@ -14,6 +14,7 @@ export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevel
 
 	const getTerms = (terms) => {
 		return terms.map(({name, shortDescription}, i) => (
+			<StyledHoverCol>
 			<StyledRow key={i} onClick={() => childRef.current.showModal(termIndexByName[name])}>
 				<Col md={5}>
 					<TermName>
@@ -27,6 +28,7 @@ export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevel
 					<img src={plus}/>
 				</StyledCol>
 			</StyledRow>
+			</StyledHoverCol>
 		))
 	};
 
@@ -78,6 +80,47 @@ export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevel
 	);
 };
 
+const StyledHoverCol=styled(Col)`
+transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
+
+&::before,
+&::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  left: 0;
+}
+&::before {
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+&::after {
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+&:hover {
+  color: #fff;
+  border: none;
+}
+&:hover::before,
+&:hover::after {
+  border-color: ${({ theme }) => theme.color.green.regular};
+  transition: border-color 0s, width 0.3s, height 0.3s;
+  width: 100%;
+  height: 100%;
+}
+&:hover::before {
+  transition-delay: 0s, 0s, 0.3s;
+}
+&:hover::after {
+  transition-delay: 0s, 0.3s, 0s;
+}
+`
 const StyledCol = styled(Col)`
 	text-align: end;
 	margin: auto;
@@ -99,9 +142,9 @@ const StyledRow = styled(Row)`
 	border: 1px solid${({ theme }) => theme.color.blue.regular};
 
 	&:hover {
-    cursor: pointer;
-    background: rgba(97, 97, 116, 0.3);
-  }
+		cursor: pointer;
+	  }
+	  
 `;
 
 const TermName = styled.p`
