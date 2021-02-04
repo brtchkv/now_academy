@@ -84,6 +84,7 @@ const StyledSearch = styled(Search)`
   width: 365px;
   height: 51px;
   padding: 0;
+  margin-left: 70px;
 
   .ant-input {
     &::placeholder {

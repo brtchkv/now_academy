@@ -84,9 +84,10 @@ const StyledSearchOutlined = styled(SearchOutlined)`
 	align-self: 'center';
 	margin-left: 'auto'
 `;
+
 const StyledDrawer = styled(Drawer)`
 	& .anticon {
 		font-size: 30px;
 		color: white;
 	}
-`
+`;

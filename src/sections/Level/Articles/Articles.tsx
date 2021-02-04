@@ -91,7 +91,7 @@ export const Articles = ({ articles_list }) => {
 
   return (
     <Row>
-      <Col lg={{ span: 23 }} md={{ span: 24 }}>
+      <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
         <Row gutter={[16, 24]}>
           <Col lg={{ span: 4 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
           <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
@@ -131,7 +131,7 @@ export const Articles = ({ articles_list }) => {
             </>
           ))}
         </Row>
-      </Col>
+      </GridFixCol>
       <Col lg={{ span: 1 }} md={{ span: 0 }} xs={{ span: 0 }}>
         <Progress />
         <ProgressLine scroll={scrollPostion + "%"} />
@@ -269,5 +269,14 @@ const Title = styled.div`
   align-self: center;
   @media (max-width: ${({ theme }) => theme.screen.xs}) {
     text-align: left;
+  }
+`
+
+const GridFixCol = styled(Col)`
+  @media (min-width: ${({ theme }) => theme.screen.md}) {
+    margin-left: -15px;
+  }
+  @media (min-width: ${({ theme }) => theme.screen.lg}) {
+    margin-left: -21px;
   }
 `
