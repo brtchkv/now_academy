@@ -63,9 +63,9 @@ export const FooterLayout: React.FunctionComponent = () => (
         <Row>
           <Col span={8}>
             <SectionName>Learn</SectionName>
-            <StyledLink to={"/glossary"}>Glossary</StyledLink>
             <StyledLink to={"/beginner-level"}>Beginner</StyledLink>
             <StyledLink to={"/intermediate-level"}>Intermediate</StyledLink>
+            <StyledLink to={"/advanced-level"}>Advanced</StyledLink>
           </Col>
           <Col span={8}>
             <SectionName>Products</SectionName>
