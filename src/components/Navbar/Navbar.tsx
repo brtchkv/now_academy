@@ -5,13 +5,16 @@ import { MenuOutlined, SearchOutlined } from '@ant-design/icons';
 
 import { MobileMenu } from './components/MobileMenu';
 import { DesktopMenu } from './components/DesktopMenu';
-import { Logo } from './components/Logo';
 import styled from 'styled-components';
+import logo from './components/logo.svg';
+import { Link } from 'gatsby';
+
 import {
 	Section,
 	Container,
 	MarginBottom
 } from '@components/global';
+
 
 const { Header } = Layout;
 
@@ -44,7 +47,9 @@ export const Navbar: React.FunctionComponent = () => {
 								<MenuOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center',}} onClick={showDrawer}/>
 							</StyledCol>
 							<StyledCol xs={18}>
-								<Logo/>
+							<StyledLink to="/">
+								<img src={logo} alt={"ChangeNow"} style={{ width: '146px' }} />
+							</StyledLink>
 							</StyledCol>
 							<StyledCol xs={3}>
 								<StyledSearchOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto'}} onClick={showSearch}/>
@@ -90,4 +95,8 @@ const StyledDrawer = styled(Drawer)`
 		font-size: 30px;
 		color: white;
 	}
+`;
+const StyledLink = styled(Link)`
+	margin-left: auto;
+	margin-right: auto;
 `;

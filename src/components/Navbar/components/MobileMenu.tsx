@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { Logo } from './Logo';
+import { Logos } from './Logos';
 
 export const MobileMenu: React.FunctionComponent = () => {
 	const items = [
@@ -17,23 +17,25 @@ export const MobileMenu: React.FunctionComponent = () => {
 					['advanced-level', 'Advanced'],
 				]
 		},
-		{'Products':
-			[
-				['https://changenow.io/', 'ChangeNOW'],
-				['https://nowpayments.io/', 'NOWPayments'],
-				['https://nownodes.io/','NOWNodes'],
-				['https://changenow.io/b2b','B2B Solutions'],
-				['https://changenow.io/token','NOW Token']
-			]
+		{
+			'Products':
+				[
+					['https://changenow.io/', 'ChangeNOW'],
+					['https://nowpayments.io/', 'NOWPayments'],
+					['https://nownodes.io/', 'NOWNodes'],
+					['https://changenow.io/b2b', 'B2B Solutions'],
+					['https://changenow.io/token', 'NOW Token']
+				]
 		},
-		{'Company':
-			[
-				['https://changenow.io/terms-of-use', 'Terms of Use'],
-				['https://changenow.io/privacy-policy', 'Privacy Policy'],
-				['https://changenow.io/','Corporate responsibility'],
-				['https://changenow.io/','For press'],
-				['https://changenow.io/jobs','Jobs']
-			]
+		{
+			'Company':
+				[
+					['https://changenow.io/terms-of-use', 'Terms of Use'],
+					['https://changenow.io/privacy-policy', 'Privacy Policy'],
+					['https://changenow.io/', 'Corporate responsibility'],
+					['https://changenow.io/', 'For press'],
+					['https://changenow.io/jobs', 'Jobs']
+				]
 		}
 	];
 	const pathname = typeof window !== 'undefined' && window.location.pathname || '';
@@ -47,25 +49,25 @@ export const MobileMenu: React.FunctionComponent = () => {
 	return (
 		<List>
 			<List.Item key="/" style={{ paddingLeft: 0, paddingTop: 0, borderBottom: 0 }}>
-				<Logo />
+				<Logos />
 			</List.Item>
 			{
 				items.map((item) => (
-						Object.keys(item).map((title) => (
-							<>
-								<SectionName>{title}</SectionName>
-								{ 
-									item[title].map(([slug, text]) => (
-										<List.Item key={slug} style={{ borderBottom: 0, padding: '0' }}>
-											<StyledHref to={`/${slug}`} className={selectedKey === slug ? 'activeLink' : ''}>
-												{text}
-											</StyledHref>
-										</List.Item>
-									))
-								}
-							</>
-						))
-					)
+					Object.keys(item).map((title) => (
+						<>
+							<SectionName>{title}</SectionName>
+							{
+								item[title].map(([slug, text]) => (
+									<List.Item key={slug} style={{ borderBottom: 0, padding: '0' }}>
+										<StyledHref to={`/${slug}`} className={selectedKey === slug ? 'activeLink' : ''}>
+											{text}
+										</StyledHref>
+									</List.Item>
+								))
+							}
+						</>
+					))
+				)
 				)
 			}
 		</List>

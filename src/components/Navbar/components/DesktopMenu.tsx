@@ -6,8 +6,7 @@ import { AudioOutlined, DownOutlined } from "@ant-design/icons"
 import { useEffect, useState } from "react"
 import { Link } from "gatsby"
 
-import { Logo } from "./Logo"
-import changeNow from "./ChangeNOW.svg"
+import changeNow from "./changenow.svg"
 
 const { Search } = Input
 
@@ -41,7 +40,9 @@ export const DesktopMenu: React.FunctionComponent = () => {
   return (
     <StyledMainMenu mode="horizontal" selectedKeys={selectedKeys} selectable>
       <StyledMenuItemWithoutBorder style={{ marginLeft: 0, paddingLeft: 0 }}>
-        <Logo style={{ paddingLeft: 0 }} />
+        <StyledLogoLink to="/">
+						<img src={changeNow} alt={"ChangeNow"} style={{ width: '146px' }} />
+				</StyledLogoLink>
       </StyledMenuItemWithoutBorder>
 
       <StyledMenuItemWithoutBorder
@@ -70,6 +71,11 @@ export const DesktopMenu: React.FunctionComponent = () => {
     </StyledMainMenu>
   )
 }
+const StyledLogoLink = styled(Link)`
+	margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+`;
 
 const StyledSearch = styled(Search)`
   margin: 0 auto;
