@@ -10,7 +10,7 @@ export const Header: React.FunctionComponent = ({ title, image, terms }) => {
 		<div>
 			<StyledH1>{title}</StyledH1>
 			{image &&	<StyledImg fluid={image.childImageSharp.fluid}/>}
-			<Terms terms={terms}/>
+			{/* <Terms terms={terms}/> */}
 		</div>
 	);
 };

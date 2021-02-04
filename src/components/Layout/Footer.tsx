@@ -167,7 +167,7 @@ const StyledHrefToken = styled.a`
 const StyledFooter = styled(Footer)`
 	background-color: #2B2B36;
 	@media (max-width: ${props => props.theme.screen.md}) {
-    	padding: 1.5rem;
+    	padding: 1.3rem;
 		flex-flow: row;
   	}
 `;

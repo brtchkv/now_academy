@@ -141,7 +141,7 @@ const LevelCard = styled(Card)`
   &:hover {
     background: #616174;
   }
-  transition: #fff 0.25s 0.0833333333s;
+  transition: #fff 0.3s 0.0833333333s;
   position: relative;
 
   &::before,
@@ -171,15 +171,15 @@ const LevelCard = styled(Card)`
   &:hover::before,
   &:hover::after {
     border-color: #fff;
-    transition: border-color 0s, width 0.25s, height 0.25s;
+    transition: border-color 0s, width 0.3s, height 0.3s;
     width: 100%;
     height: 100%;
   }
   &:hover::before {
-    transition-delay: 0s, 0s, 0.25s;
+    transition-delay: 0s, 0s, 0.3s;
   }
   &:hover::after {
-    transition-delay: 0s, 0.25s, 0s;
+    transition-delay: 0s, 0.3s, 0s;
   }
 `
 
@@ -216,7 +216,7 @@ const ActionButton = styled.div`
   margin-right: auto;
   border: 1px solid #fff;
 
-  transition: ${({ theme }) => theme.color.green.regular} 0.25s 0.0833333333s;
+  transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
   position: relative;
 
   &::before,
@@ -242,20 +242,20 @@ const ActionButton = styled.div`
   &:hover {
     color: ${({ theme }) => theme.color.green.regular};
     border: none;
-    transition: border 0s, width 0.25s, height 0.25s;
+    transition: border 0s, width 0.3s, height 0.3s;
   }
   &:hover::before,
   &:hover::after {
     border-color: ${({ theme }) => theme.color.green.regular};
-    transition: border-color 0s, width 0.25s, height 0.25s;
+    transition: border-color 0s, width 0.3s, height 0.3s;
     width: 100%;
     height: 100%;
   }
   &:hover::before {
-    transition-delay: 0s, 0s, 0.25s;
+    transition-delay: 0s, 0s, 0.3s;
   }
   &:hover::after {
-    transition-delay: 0s, 0.25s, 0s;
+    transition-delay: 0s, 0.3s, 0s;
   }
 `
 

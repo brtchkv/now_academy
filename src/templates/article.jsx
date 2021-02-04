@@ -1,10 +1,12 @@
 import { Col, Row } from 'antd';
 import React from "react";
 import { graphql } from "gatsby";
+import styled from 'styled-components';
 
 import { Layout } from      '@components/Layout';
 import { ArticleNavigation } from  '@article/ArticleNavigation';
 import { ArticleSectionsNavigation } from  '@article/ArticleSectionsNavigation';
+import { ArticleSlider } from  '@article/ArticleSlider';
 import { Breadcrumbs } from       '@article/Breadcrumbs';
 import { Header } from      '@article/Header';
 import { ArticleSections } from    '@article/ArticleSections';
@@ -18,7 +20,6 @@ import {
 const Article = ({ data, pageContext }) => {
 	const { next, prev } = pageContext;
 	const article = data.strapiArticle;
-	const terms = data.allStrapiTerm.nodes;
 	const {
 		title,
 		level,
@@ -28,41 +29,48 @@ const Article = ({ data, pageContext }) => {
 
 	const articleSections = (
 		<MarginBottom>
-			<ArticleSectionsNavigation sections={sections}/>
+			<ArticleSlider sections={sections}/>
 		</MarginBottom>
 	);
 	return (
 		<Layout>
 			<Section>
 				<Container>
-					<MarginBottom>
-						<Breadcrumbs level={level} title={title}/>
-					</MarginBottom>
 					<Row>
-						<Col md={{span: 15, order: 1}} xs={{order: 2}}>
+						<Col lg={{span: 24}} xs={{span: 0}} md={{span: 24}}>
 							<MarginBottom>
-								<Header title={title} image={image} terms={terms}/>
+								<Breadcrumbs level={level} title={title} {...{prev, next, level}}/>
 							</MarginBottom>
-							<Col md={0} xs={24}>
-								{articleSections}
-							</Col>
+						</Col>
+					</Row>
+					{/* <MarginBottom>
+						<ArticleNavigation {...{prev, next, level}}/>
+					</MarginBottom> */}
+					<Row>
+						<Col md={{span: 17, offset: 3, order: 1}} xs={{order: 2}}>
+							<MarginBottom>
+								<Header title={title} image={image}/>
+							</MarginBottom>
 							<MarginBottom>
 								<ArticleSections sections={sections}/>
 							</MarginBottom>
-							<MarginBottom>
-								<ArticleNavigation {...{prev, next, level}}/>
-							</MarginBottom>
 						</Col>
-
-						<Col md={{span: 6, offset: 3, order: 2}} xs={{span: 0}}>
+						<StyledSlider md={{span: 2, offset: 2, order: 2}} xs={{ span: 0, offset: 0 }}>
 							{articleSections}
-						</Col>
+						</StyledSlider>
 					</Row>
 				</Container>
 			</Section>
 		</Layout>
 	);
 };
+
+const StyledSlider = styled(Col)`
+  /* position: fixed;
+  right: 6rem;
+  width: 25px;
+  height: 400px; */
+`
 
 export const query = graphql`
     query ArticleQuery($id: Int!) {

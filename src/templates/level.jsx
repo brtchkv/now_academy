@@ -28,7 +28,6 @@ const Level = ({ data }) => {
 
   return (
     <Layout>
-      <Section>
         <Container>
           <DesktopNavigation>
             <MarginBottom>
@@ -49,7 +48,6 @@ const Level = ({ data }) => {
             <Navigation {...{ next_level, prev_level }} />
           </MobileNavigation>
         </Container>
-      </Section>
     </Layout>
   );
 };

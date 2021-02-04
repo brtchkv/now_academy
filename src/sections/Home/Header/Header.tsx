@@ -20,6 +20,7 @@ const StyledH1 = styled.h1`
 	font-size: 43px;
 	line-height: 140%;
 	color: #FFFFFF;
+	padding-top: 25px;
 	@media (max-width: ${({ theme }) => theme.screen.xs}) {
 		font-size: 30px;
   	}

@@ -52,7 +52,7 @@ export const Navbar: React.FunctionComponent = () => {
 						</Row>
 					</Col>
 
-					<Drawer
+					<StyledDrawer
 						placement="left"
 						drawerStyle={{backgroundColor: '#2B2B36' }}
 						closable={true}
@@ -62,7 +62,7 @@ export const Navbar: React.FunctionComponent = () => {
 						bodyStyle={{padding: '3.2rem'}}
 					>
 						<MobileMenu/>
-					</Drawer>
+					</StyledDrawer>
 				</Header>
 			</Container>
 		</StyledNav>
@@ -85,5 +85,8 @@ const StyledSearchOutlined = styled(SearchOutlined)`
 	margin-left: 'auto'
 `;
 const StyledDrawer = styled(Drawer)`
-	padding: 3.2rem;
+	& .anticon {
+		font-size: 30px;
+		color: white;
+	}
 `

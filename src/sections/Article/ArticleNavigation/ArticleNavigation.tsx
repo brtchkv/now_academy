@@ -11,7 +11,6 @@ export const ArticleNavigation: React.FunctionComponent = ({ next, prev, level }
 	const prevLesson = prev && (
 		<Link to={getSlug(prev.slug)}>
 			<NavigationItem >
-				<Title>Previous lesson</Title>
 				{prev.title}
 			</NavigationItem>
 		</Link>
@@ -20,7 +19,6 @@ export const ArticleNavigation: React.FunctionComponent = ({ next, prev, level }
 	const nextLesson = next && (
 		<Link to={getSlug(next.slug)}>
 			<NavigationItem style={{textAlign: 'right'}}>
-				<Title>Next lesson</Title>
 				{next.title}
 			</NavigationItem>
 		</Link>
@@ -39,7 +37,6 @@ export const ArticleNavigation: React.FunctionComponent = ({ next, prev, level }
 };
 
 const NavigationItem = styled.div`
-	background: rgba(196, 196, 196, 0.04);
 	border-radius: 4px;
 	padding: 25px;
 	color: #FFFFFF;

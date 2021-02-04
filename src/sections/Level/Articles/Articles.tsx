@@ -180,7 +180,7 @@ const AricleImg = styled.div`
 `
 
 const CardLink = styled(Link)`
-  transition: ${({ theme }) => theme.color.green.regular} 0.25s 0.0833333333s;
+  transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
 
   &::before,
   &::after {
@@ -209,15 +209,15 @@ const CardLink = styled(Link)`
   &:hover::before,
   &:hover::after {
     border-color: ${({ theme }) => theme.color.green.regular};
-    transition: border-color 0s, width 0.25s, height 0.25s;
+    transition: border-color 0s, width 0.3s, height 0.3s;
     width: 100%;
     height: 100%;
   }
   &:hover::before {
-    transition-delay: 0s, 0s, 0.25s;
+    transition-delay: 0s, 0s, 0.3s;
   }
   &:hover::after {
-    transition-delay: 0s, 0.25s, 0s;
+    transition-delay: 0s, 0.3s, 0s;
   }
 `
 
@@ -232,7 +232,7 @@ const ProgressLine = styled.div`
   height: 90%;
   z-index: -2;
   position: absolute;
-  left: auto;
+  right: 0;
 `
 
 const ColSpanWrapper = styled(Col)`
@@ -254,7 +254,7 @@ const Progress = styled.div`
   height: 90%;
   z-index: -2;
   position: absolute;
-  left: auto;
+  right: 0;
 `
 
 const Title = styled.div`

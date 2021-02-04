@@ -9,30 +9,17 @@ export const ArticleSectionsNavigation = ({ sections }) => {
 	return (
 		<>
 			<Row>
-				<Col xs={24} md={0}>
-					<Title>Table of contents</Title>
-					<StyledAnchor targetOffset={15} affix={false}>
-						{sections.map(({title, content}, i) => (
-							<StyledLink key={`section__${i}`} href={`#${stringToSlug(title)}`} title={title} />
-						))}
-					</StyledAnchor>
-				</Col>
 				<Col md={24} xs={0}>
 					<Affix offsetTop={15}>
-						<Title>Table of contents</Title>
 						<StyledAnchor targetOffset={15}>
-							{sections.map(({title, content}, i) => (
+							{sections.map(({ title, content }, i) => (
 								<StyledLink key={`section__${i}`} href={`#${stringToSlug(title)}`} title={title} />
 							))}
 						</StyledAnchor>
-
-
 					</Affix>
-
 				</Col>
 			</Row>
-
-			</>
+		</>
 	)
 };
 

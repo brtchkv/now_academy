@@ -9,6 +9,8 @@ export const Container = styled(Content)`
 
   @media (max-width: ${(props) => props.theme.screen.xs}) {
     padding: 0 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   @media (min-width: ${(props) => props.theme.screen.xs}) {
     max-width: 540px;
@@ -58,12 +60,14 @@ export const MarginBottom = styled.div`
 `
 
 export const Section = styled.section`
-  padding: 64px 0;
+  padding: 25px 0;
   overflow: hidden;
   width: 100%;
 
   @media (max-width: ${(props) => props.theme.screen.md}) {
     padding: 32px 0;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   ${(props) =>
@@ -81,6 +85,8 @@ export const SectionWithoutPadding = styled.section`
 
   @media (max-width: ${(props) => props.theme.screen.md}) {
     padding: 32px 0;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   ${(props) =>

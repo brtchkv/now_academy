@@ -21,11 +21,18 @@ const SectionTitle = styled.div`
 	font-size: 24px;
 	line-height: 28px;
 	margin-bottom: 20px;
-
+	font-weight: 300;
+	font-size: 32px;
+	line-height: 37px;
+	margin-top: 100px;
 `;
 
 const SectionContent = styled.div`
 	font-size: 16px;
 	line-height: 150%;  
 	margin-bottom: 60px;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 27px;
+	color: ${({ theme }) => theme.color.gray.regular};
 `;
