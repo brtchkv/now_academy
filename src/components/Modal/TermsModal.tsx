@@ -60,13 +60,13 @@ export const TermsModal: React.FunctionComponent = forwardRef(({ terms }, ref) =
 						<TermTitle>{term.name}</TermTitle>
 						<TermDescription dangerouslySetInnerHTML={{ __html: term.shortDescription }}/>
 						<TermDescription dangerouslySetInnerHTML={{ __html: term.description }}/>
-						{term.articles.length ? <LearnMore>Learn more:</LearnMore> : undefined}
+						{/* {term.articles.length ? <LearnMore>Learn more:</LearnMore> : undefined}
 						{term.articles.length ? term.articles.map((article, articleIndex) => (
 							<TermArticle key={articleIndex}>
 								<TermArticleLink to={`/${term.level.slug}/${article.slug}`} onClick={handleCancel}>{article.title}</TermArticleLink>
 								<TermArticleImg src={linkSvg} alt=""/>
 							</TermArticle>
-						)) : undefined}
+						)) : undefined} */}
 					</div>
 				))}
 			</Slider>
