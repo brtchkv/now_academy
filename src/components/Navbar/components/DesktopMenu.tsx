@@ -12,7 +12,7 @@ import changeNow from "./ChangeNOW.svg"
 const { Search } = Input
 
 export const DesktopMenu: React.FunctionComponent = () => {
-  const slugAndTextList = [["glossary", "Glossary"]]
+  const slugAndTextList = [["", "Glossary"]]
   const pathname =
     (typeof window !== "undefined" && window.location.pathname) || ""
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
@@ -57,7 +57,7 @@ export const DesktopMenu: React.FunctionComponent = () => {
       </StyledMenuItemWithoutBorder>
 
       {slugAndTextList.map(([slug, text]) => (
-        <StyledMenuItem key={slug} style={{ float: "right" }}>
+        <StyledMenuItem key={slug} style={{ float: "right", borderBottom: "none" }}>
           <StyledLink to={`/${slug}`}>{text}</StyledLink>
         </StyledMenuItem>
       ))}
@@ -70,10 +70,6 @@ export const DesktopMenu: React.FunctionComponent = () => {
     </StyledMainMenu>
   )
 }
-
-const StyledDropdown = styled(Dropdown)`
-  margin-top: -4px;
-`
 
 const StyledSearch = styled(Search)`
   margin: 0 auto;
@@ -141,6 +137,9 @@ const StyledMenuItem = styled(Menu.Item)`
   & a {
     color: #fff !important;
   }
+  &:hover {
+    border-bottom: none !important;
+  }
 `
 
 const StyledMenuItemWithoutBorder = styled(Menu.Item)`
@@ -169,6 +168,7 @@ const StyledA = styled.a`
 
   &:hover {
     color: #00c26f !important;
+
   }
 `
 

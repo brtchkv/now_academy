@@ -34,6 +34,6 @@ const LevelLink = styled(Link)`
 	line-height: 21px;
 	font-weight: lighter;
 	&:hover {
-    	color: #ecf0f1;
+    	color: ${({ theme }) => theme.color.green.regular};
   	}
 `;

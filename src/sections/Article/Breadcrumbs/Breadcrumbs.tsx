@@ -58,6 +58,9 @@ const StyledBreadcrumb = styled(Breadcrumb)`
     white-space:nowrap; 
     text-overflow: ellipsis;
 	padding-right: 1rem;	
+	& a:hover {
+		color: ${({ theme }) => theme.color.green.regular};
+	}
 `;
 
 const NavigationItem = styled.div`
@@ -73,7 +76,7 @@ const NavigationItem = styled.div`
 	}		
 
 	&:hover {
-		color: #07854f;
+		color: ${({ theme }) => theme.color.green.regular};
 	}
 `;
 
