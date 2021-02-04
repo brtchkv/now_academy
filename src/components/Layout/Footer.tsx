@@ -190,6 +190,18 @@ const StyledFooter = styled(Footer)`
     padding: 1.3rem;
     flex-flow: row;
   }
+  width: 100% !important;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1216px) {
+    max-width: 1152px;
+  }
+  @media (min-width: 1408px) {
+    max-width: 1344px;
+  }
 `
 
 const AdaptiveCol = styled(Col)`
@@ -204,14 +216,13 @@ const AdaptiveCol = styled(Col)`
   }
 `
 
-
 const AdaptiveRow = styled(Row)`
   @media (max-width: 990px) {
     justify-content: center;
-	text-align: text;
+    text-align: text;
   }
   @media (max-width: ${(props) => props.theme.screen.sm}) {
-  	justify-content: inherit;
+    justify-content: inherit;
   }
 `
 
@@ -222,7 +233,7 @@ const AdaptiveMediaRow = styled(AdaptiveRow)`
   }
   @media (max-width: ${(props) => props.theme.screen.sm}) {
     padding-bottom: inherit;
-  	padding-top: inherit;
+    padding-top: inherit;
   }
 `
 

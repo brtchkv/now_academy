@@ -53,13 +53,13 @@ const Level = ({ data }) => {
 };
 
 const DesktopNavigation = styled.div`
-  @media (max-width: ${({ theme }) => theme.screen.xs}) {
+  @media (max-width: ${({ theme }) => theme.screen.md}) {
     display: none;
   }
 `
 
 const MobileNavigation = styled.div`
-  @media (min-width: ${({ theme }) => theme.screen.xs}) {
+  @media (min-width: ${({ theme }) => theme.screen.md}) {
     display: none;
   }
 `

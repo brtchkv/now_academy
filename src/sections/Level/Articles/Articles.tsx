@@ -38,7 +38,7 @@ export const Articles = ({ articles_list }) => {
     { img: "monero.svg", name: "Monero" },
   ]
 
-  const themeContext = useContext(ThemeContext)
+  const themeContext = useContext(ThemeContext);
 
   function importAll(r) {
     let images = {}
@@ -118,8 +118,8 @@ export const Articles = ({ articles_list }) => {
                   <Title>Step {i / 3 + 1}</Title>
                 </ColSpanWrapper>
               )}
-              <CardWrapper>
-                <Col key={`article__${i}`} lg={{ span: 24 }} style={{ padding: 0 }} >
+              <CardWrapper key={`article__${i}`}>
+                <Col lg={{ span: 24 }} style={{ padding: 0 }} >
                   <CardLink to={"brief-history-of-crypto"}>
                     <AricleImg img={images[article.img]}>
                       <ArticleTitle>{article.name}</ArticleTitle>

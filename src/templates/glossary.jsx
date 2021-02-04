@@ -27,6 +27,7 @@ const Glossary = (props) => {
 		acc[level.name] = level.terms.map(term => term.id);
 		return acc;
 	}, {});
+	console.log(location);
 	return (
 		<Layout>
 			<Section>
