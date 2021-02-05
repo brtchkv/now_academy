@@ -24,7 +24,7 @@ const Level = ({ data }) => {
     next_level,
     prev_level,
   } = level;
-  const articles = orderedArticles.map(({ article }) => article);
+  // const articles = orderedArticles.map(({ article }) => article);
 
   return (
     <Layout>
@@ -40,7 +40,7 @@ const Level = ({ data }) => {
                 <Header name={name} description={'а step-by-step guide to the basics of crypto'} />
               </MarginBottom>
               <MarginBottom>
-                <Articles articles_list={articles} />
+                <Articles  />
               </MarginBottom>
             </Col>
           </Row>
@@ -77,44 +77,6 @@ export const query = graphql`
       prev_level {
         slug
 	      name
-      }
-      orderedArticles {
-        article {
-          description
-          id
-          title
-          slug
-          image {
-            childImageSharp {
-              fluid(webpQuality: 100, quality: 100) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
-              }
-            }
-          }
-          preview_image {
-            childImageSharp {
-              fluid(webpQuality: 100, quality: 100) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
-              }
-            }
-          }
-        }
       }
     }
   }

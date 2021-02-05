@@ -30,13 +30,6 @@ exports.createPages = async ({ graphql, actions }) => {
               strapiId
               name
               slug
-							orderedArticles {
-								article {
-									id
-					        title
-					        slug
-								}
-							}
             }
           }
         }
@@ -67,20 +60,20 @@ exports.createPages = async ({ graphql, actions }) => {
 	});
 
 	levels.forEach((level) => {
-		const articles = level.node.orderedArticles.map(({article}) => article);
-		articles.forEach((article, i) => {
-			const prev = articles[i - 1] ? { title: articles[i - 1].title, slug: articles[i - 1].slug }  : undefined;
-			const next = articles[i + 1] ? { title: articles[i + 1].title, slug: articles[i + 1].slug }  : undefined;
-			createPage({
-				path: `/${level.node.slug}/${article.slug}`,
-				component: require.resolve("./src/templates/article.jsx"),
-				context: {
-					prev,
-					next,
-					id: article.id,
-				},
-			})
-		});
+		// const articles = level.node.orderedArticles.map(({article}) => article);
+		// articles.forEach((article, i) => {
+		// 	const prev = articles[i - 1] ? { title: articles[i - 1].title, slug: articles[i - 1].slug }  : undefined;
+		// 	const next = articles[i + 1] ? { title: articles[i + 1].title, slug: articles[i + 1].slug }  : undefined;
+		// 	createPage({
+		// 		path: `/${level.node.slug}/${article.slug}`,
+		// 		component: require.resolve("./src/templates/article.jsx"),
+		// 		context: {
+		// 			prev,
+		// 			next,
+		// 			id: article.id,
+		// 		},
+		// 	})
+		// });
 
     createPage({
       path: `/${level.node.slug}`,
