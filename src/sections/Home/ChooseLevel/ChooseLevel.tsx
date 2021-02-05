@@ -77,6 +77,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Col md={24} xs={24}>
+          <Link to={"/advanced-level"}>
             <RightCard bordered={false} cover={<CardImg src={advanced} />}>
               <LevelName>Advanced</LevelName>
               <CardDescription>
@@ -85,6 +86,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
               </CardDescription>
               <ActionButton>Start learning</ActionButton>
             </RightCard>
+            </Link>
           </Col>
         </SwiperSlide>
       </Slider>

@@ -8,10 +8,12 @@ import { Link } from "gatsby"
 
 import changeNow from "./changenow.svg"
 
+import academy from "./logo.svg"
+
 const { Search } = Input
 
 export const DesktopMenu: React.FunctionComponent = () => {
-  const slugAndTextList = [["glossary", "Glossary"]]
+  const slugAndTextList = [["/glossary", "Glossary"]]
   const pathname =
     (typeof window !== "undefined" && window.location.pathname) || ""
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
@@ -41,7 +43,7 @@ export const DesktopMenu: React.FunctionComponent = () => {
     <StyledMainMenu mode="horizontal" selectedKeys={selectedKeys} selectable>
       <StyledMenuItemWithoutBorder style={{ marginLeft: 0, paddingLeft: 0 }}>
         <StyledLogoLink to="/">
-						<img src={changeNow} alt={"ChangeNow"} style={{ width: '146px' }} />
+						<img src={academy} alt={"AcademyNow"} style={{ width: '205px' }} />
 				</StyledLogoLink>
       </StyledMenuItemWithoutBorder>
 
