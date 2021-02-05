@@ -41,11 +41,12 @@ export const ChooseLevel: React.FunctionComponent = () => {
           },
           767: {
             slidesPerView: 3,
+            allowTouchMove: false
 		  },
 		}}
       >
         <SwiperSlide>
-          <Col md={24} xs={24}>
+          <ColCards md={24} xs={24}>
             <Link to={"/beginner-level"}>
               <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
                 <LevelName>Beginner</LevelName>
@@ -56,10 +57,10 @@ export const ChooseLevel: React.FunctionComponent = () => {
                 <ActionButton>Start learning</ActionButton>
               </LeftCard>
             </Link>
-          </Col>
+          </ColCards>
         </SwiperSlide>
         <SwiperSlide>
-          <Col md={24} xs={24}>
+          <ColCards md={24} xs={24}>
             <Link to={"/intermediate-level"}>
               <CenterCard
                 bordered={false}
@@ -73,10 +74,10 @@ export const ChooseLevel: React.FunctionComponent = () => {
                 <ActionButton>Start learning</ActionButton>
               </CenterCard>
             </Link>
-          </Col>
+          </ColCards>
         </SwiperSlide>
         <SwiperSlide>
-          <Col md={24} xs={24}>
+          <ColCards md={24} xs={24}>
             <RightCard bordered={false} cover={<CardImg src={advanced} />}>
               <LevelName>Advanced</LevelName>
               <CardDescription>
@@ -85,12 +86,16 @@ export const ChooseLevel: React.FunctionComponent = () => {
               </CardDescription>
               <ActionButton>Coming Soon</ActionButton>
             </RightCard>
-          </Col>
+          </ColCards>
         </SwiperSlide>
       </Slider>
     </Row>
   )
 }
+
+const ColCards = styled(Col)`
+  height: 100%;
+`
 
 const LevelName = styled.p`
   font-size: 32px;

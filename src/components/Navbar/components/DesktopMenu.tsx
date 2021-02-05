@@ -13,7 +13,7 @@ import academy from "./logo.svg"
 const { Search } = Input
 
 export const DesktopMenu: React.FunctionComponent = () => {
-  const slugAndTextList = [["/glossary", "Glossary"]]
+  const slugAndTextList = [["glossary", "Glossary"]]
   const pathname =
     (typeof window !== "undefined" && window.location.pathname) || ""
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
