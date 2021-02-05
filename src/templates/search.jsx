@@ -42,7 +42,6 @@ export const query = graphql`
         id
         title
 	      slug
-        time_to_read
         level {
           name
           slug

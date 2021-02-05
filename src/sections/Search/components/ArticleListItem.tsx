@@ -10,7 +10,6 @@ export const ArticleListItem = ({ article }) => {
         <AricleImg fluid={article.image.childImageSharp.fluid} />
       )}
       <AricleText>
-        <TimeToRead>{article.time_to_read} MIN</TimeToRead>
         <ArticleTitle>{article.title}</ArticleTitle>
         <br />
         <ArticleDescription>{article.description}</ArticleDescription>

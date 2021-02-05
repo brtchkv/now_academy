@@ -84,7 +84,6 @@ export const query = graphql`
           id
           title
           slug
-          time_to_read
           image {
             childImageSharp {
               fluid(webpQuality: 100, quality: 100) {
