@@ -27,7 +27,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
   return (
     <Row style={{ marginBottom: 10 }}>
       <Slider
-        spaceBetween={10}
+        spaceBetween={15}
         slidesPerView={3}
         pagination={{
           clickable: true,
