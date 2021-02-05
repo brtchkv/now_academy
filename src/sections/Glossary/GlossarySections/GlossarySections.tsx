@@ -29,6 +29,7 @@ const StyledAnchor = styled(Anchor)`
 	background: ${({ theme }) => theme.color.blue.dark};
 	color: #fff;
 	max-height: 100% !important;
+	margin: auto;
 	& .ant-anchor {
 		display: flex;
 		flex-direction: row;
