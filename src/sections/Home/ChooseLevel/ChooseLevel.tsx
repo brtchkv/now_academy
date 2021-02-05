@@ -77,16 +77,14 @@ export const ChooseLevel: React.FunctionComponent = () => {
         </SwiperSlide>
         <SwiperSlide>
           <Col md={24} xs={24}>
-          <Link to={"/advanced-level"}>
             <RightCard bordered={false} cover={<CardImg src={advanced} />}>
               <LevelName>Advanced</LevelName>
               <CardDescription>
                 An in-depth review of processes, phenomena, and events related
                 to the crypto industry.
               </CardDescription>
-              <ActionButton>Start learning</ActionButton>
+              <ActionButton>Coming Soon</ActionButton>
             </RightCard>
-            </Link>
           </Col>
         </SwiperSlide>
       </Slider>

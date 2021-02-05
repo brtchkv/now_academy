@@ -25,7 +25,7 @@ const Level = ({ data }) => {
     prev_level,
   } = level;
   // const articles = orderedArticles.map(({ article }) => article);
-
+  // console.log(level);
   return (
     <Layout>
         <Container>
