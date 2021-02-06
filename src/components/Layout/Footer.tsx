@@ -108,7 +108,7 @@ export const FooterLayout: React.FunctionComponent = () => (
 const SocialIcon = styled.img`
   margin-right: 25px;
   &:hover {
-    fill: #00c26f;
+    filter: invert(45%) sepia(100%) saturate(1457%) hue-rotate(122deg) brightness(99%) contrast(101%);;
   }
 `
 
