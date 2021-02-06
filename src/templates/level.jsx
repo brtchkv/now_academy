@@ -21,6 +21,7 @@ const Level = ({ data }) => {
     name,
     description,
     orderedArticles,
+    current,
     next_level,
     prev_level,
   } = level;
@@ -31,7 +32,7 @@ const Level = ({ data }) => {
         <Container>
           <DesktopNavigation>
             <MarginBottom>
-              <Navigation {...{ next_level, prev_level }} />
+              <Navigation {...{name, next_level, prev_level }} />
             </MarginBottom>
           </DesktopNavigation>
           <Row>
