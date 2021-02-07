@@ -586,6 +586,12 @@ img:hover {
   display: none;
 }
 
+.ant-select-dropdown {
+    background: ${({theme}) => theme.color.blue.light};
+    box-shadow: none;
+    border-radius: 0;
+}
+
 background: ${({theme}) => theme.color.blue.regular};
 
 `;

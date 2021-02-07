@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import { Logos } from './Logos';
 
-export const MobileMenu: React.FunctionComponent = () => {
+export const MobileMenu = (props) => {
 	const items = [
 		{
 			'Learn':
@@ -46,11 +46,13 @@ export const MobileMenu: React.FunctionComponent = () => {
 	// 	setSelectedKeys(selectedSlug);
 	// }, []);
 
+
+
 	return (
 		<List>
-			<List.Item key="/" style={{ paddingLeft: 0, paddingTop: 0, borderBottom: 0 }}>
+			<LogosItemsStyled key="/">
 				<Logos />
-			</List.Item>
+			</LogosItemsStyled>
 			{
 				items.map((item) => (
 					Object.keys(item).map((title) => (
@@ -73,6 +75,13 @@ export const MobileMenu: React.FunctionComponent = () => {
 		</List>
 	);
 };
+
+
+const LogosItemsStyled = styled(List.Item)`
+	padding-left: 0;
+	padding-top: 0;
+	border-bottom: 0;
+`
 
 const SectionName = styled.p`
 	font-size: 14px;

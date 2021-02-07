@@ -35,7 +35,7 @@ const Level = (props) => {
 };
 
 export const query = graphql`
-  query SearchQuery {
+  query SearchFullQuery {
     allStrapiArticle {
       nodes {
         description

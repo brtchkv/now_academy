@@ -2,7 +2,7 @@ import { Layout, Drawer, Col, Row } from 'antd';
 import * as React from 'react';
 import { useState } from 'react';
 import { MenuOutlined, SearchOutlined } from '@ant-design/icons';
-
+import { graphql, useStaticQuery } from "gatsby"
 import { MobileMenu } from './components/MobileMenu';
 import { DesktopMenu } from './components/DesktopMenu';
 import styled from 'styled-components';
@@ -14,6 +14,7 @@ import {
 	Container,
 	MarginBottom
 } from '@components/global';
+import { MobileSearch } from './components/MobileSearch';
 
 
 const { Header } = Layout;
@@ -33,38 +34,78 @@ export const Navbar: React.FunctionComponent = () => {
 	const onCloseSearch = () => {
 		setSearchVisible(false);
 	};
+
+	const data = useStaticQuery(graphql`
+    query SearchQuery {
+      allStrapiArticle {
+        nodes {
+          id
+          title
+          level {
+            name
+            slug
+          }
+        }
+      }
+      allStrapiTerm {
+        nodes {
+          id
+          name
+          term_type {
+            name
+          }
+          level {
+            name
+            slug
+          }
+        }
+      }
+    }
+  `);
+
 	return (
 		<StyledNav>
 			<Container>
 				<Header className="before-navbar">
 					<Col lg={{ span: 24 }} xs={{ span: 0 }}>
-						<DesktopMenu/>
+						<DesktopMenu data={data} />
 					</Col>
 
-					<Col lg={{span: 0}} xs={{span: 24}}>
+					<Col lg={{ span: 0 }} xs={{ span: 24 }}>
 						<Row justify="center">
 							<StyledCol xs={3}>
-								<MenuOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center',}} onClick={showDrawer}/>
+								<MenuOutlined style={{ color: '#fff', fontSize: '25px', alignSelf: 'center', }} onClick={showDrawer} />
 							</StyledCol>
 							<StyledCol xs={18}>
-							<StyledLink to="/">
-								<img src={logo} alt={"ChangeNow"} style={{ width: '146px' }} />
-							</StyledLink>
+								<StyledLink to="/">
+									<img src={logo} alt={"ChangeNow"} style={{ width: '146px' }} />
+								</StyledLink>
 							</StyledCol>
 							<StyledCol xs={3}>
-								<StyledSearchOutlined style={{color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto'}} onClick={showSearch}/>
+								<StyledDrawer
+									placement="right"
+									drawerStyle={{ backgroundColor: '#2B2B36' }}
+									closable={true}
+									onClose={onCloseSearch}
+									visible={isSearchVisible}
+									width={'100%'}
+									style={{ color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto' }}
+								>
+									<MobileSearch data={data} />
+								</StyledDrawer>
+								<StyledSearchOutlined style={{ color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto' }} onClick={showSearch} />
 							</StyledCol>
 						</Row>
 					</Col>
 
 					<StyledDrawer
 						placement="left"
-						drawerStyle={{backgroundColor: '#2B2B36' }}
+						drawerStyle={{ backgroundColor: '#2B2B36' }}
 						closable={true}
 						onClose={onCloseDrawer}
 						visible={isDrawerVisible}
 						width={'100%'}
-						bodyStyle={{padding: '3.2rem'}}
+						bodyStyle={{ padding: '3.2rem' }}
 					>
 						<MobileMenu/>
 					</StyledDrawer>
