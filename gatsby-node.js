@@ -61,17 +61,10 @@ exports.createPages = async ({
     throw result.errors
   }
 
-  console.log("________Row Data___________")
-
-
-  console.log(result.data.allStrapiArticle);
-
   const levels = result.data.levels.edges;
   const articles = result.data.allStrapiArticle.edges;
   const allStrapiTerm = result.data.strapiTerms.nodes;
   const cryptocurrencyMainTerms = result.data.cryptocurrencyIn3Minutes.terms;
-  console.log('cryptocurrencyMainTerms === ', cryptocurrencyMainTerms);
-  console.log('allStrapiTerm === ', allStrapiTerm);
 
   const mainTerms = cryptocurrencyMainTerms.map(term => {
     return allStrapiTerm.find(t => t.strapiId === term.id);
@@ -84,11 +77,6 @@ exports.createPages = async ({
       mainTerms,
     },
   });
-  console.log("________Articles___________")
-
-  console.log(articles)
-
-  console.log("________Article________")
 
   articles.forEach((article, i) => {
     const prev = articles[i - 1] ? {
@@ -99,7 +87,6 @@ exports.createPages = async ({
       title: articles[i + 1].node.title,
       slug: articles[i + 1].node.slug
     } : undefined;
-    console.log(article);
     createPage({
       path: `/${article.node.level.slug}/${article.node.slug}`,
       component: require.resolve("./src/templates/article.jsx"),
@@ -110,8 +97,6 @@ exports.createPages = async ({
       },
     })
   });
-
-  console.log("_______________________")
 
   levels.forEach((level) => {
     createPage({

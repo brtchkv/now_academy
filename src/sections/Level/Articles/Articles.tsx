@@ -12,30 +12,32 @@ import './styles/styles.scss';
 export const Articles = ({ articles_list }) => {
   const [scrollPostion, setScrollPostion] = useState(0)
   const articles = [
-    { img: "origins.svg", name: "Origins of Crypto" },
-    { img: "blockchain.svg", name: "Blockchain" },
-    { img: "bitcoin.svg", name: "Bitcoin" },
-    { img: "mining.svg", name: "Mining" },
-    { img: "consensus.svg", name: "Consensus Algorithms" },
-    { img: "litecoin.svg", name: "Litecoin" },
-    { img: "decentralisation.svg", name: "Decentralization as a concept" },
-    { img: "contracts.svg", name: "Smart Contracts & Dapps" },
-    { img: "ethereum.svg", name: "Ethereum" },
-    { img: "funds.svg", name: "Crypto Wallets and Funds Safety" },
-    { img: "scaling.svg", name: "Scaling in Blockchain" },
-    { img: "eos.svg", name: "EOS" },
-    { img: "economy.svg", name: "Crypto Economy & Tokenomics" },
-    { img: "trading.svg", name: "Crypto Exchanges & Trading" },
-    { img: "usdt.svg", name: "USDT Tether" },
-    { img: "cbdc.svg", name: "Crypto Legislation & CBDC" },
-    { img: "finance.svg", name: "Blockchain in Traditional Finance" },
-    { img: "ripple.svg", name: "Ripple" },
+    { img: "origins.svg", name: "Origins of Crypto", link: "/beginner-level/the-origins-of-crypto"},
+    { img: "blockchain.svg", name: "Blockchain", link: "/beginner-level/blockchain-101" },
+    { img: "bitcoin.svg", name: "Bitcoin", link: "/beginner-level/bitcoin" },
+    { img: "mining.svg", name: "Mining", link: "/beginner-level/the-basics-of-mining" },
+    { img: "consensus.svg", name: "Consensus Algorithms", link: "/beginner-level/cryptocurrency-consensus-algorithms" },
+    { img: "litecoin.svg", name: "Litecoin", link: "/beginner-level/litecoin" },
+    { img: "decentralisation.svg", name: "Decentralization as a concept", link: "/beginner-level/litecoin" },
+    { img: "contracts.svg", name: "Smart Contracts & Dapps", link: "/beginner-level/decentralization-as-a-concept" },
+    { img: "ethereum.svg", name: "Ethereum", link: "/beginner-level/ethereum" },
+    { img: "funds.svg", name: "Crypto Wallets and Funds Safety", link: "/beginner-level/crypto-wallets-and-asset-security" },
+    { img: "scaling.svg", name: "Scaling in Blockchain", link: "/beginner-level/blockchain-scaling" },
+    { img: "eos.svg", name: "EOS", link: "/beginner-level/eos" },
+    { img: "economy.svg", name: "Crypto Economy & Tokenomics", link: "/beginner-level/crypto-economy-and-tokenomics" },
+    { img: "trading.svg", name: "Crypto Exchanges & Trading", link: "/beginner-level/crypto-economy-and-tokenomics" },
+    { img: "usdt.svg", name: "USDT Tether", link: "/beginner-level/usdt-and-stablecoins" },
+    { img: "cbdc.svg", name: "Crypto Legislation & CBDC", link: "/beginner-level/crypto-legislation"},
+    { img: "finance.svg", name: "Blockchain in Traditional Finance", link: "/beginner-level/blockchain-in-traditional-finance" },
+    { img: "ripple.svg", name: "Ripple", link: "/beginner-level/ripple" },
     {
       img: "review.svg",
       name: "Prominent Blockchain Projects & Platforms Review",
+      link: "/beginner-level/prominent-blockchain-projects-and-platforms-review"
     },
-    { img: "privacy.svg", name: "Privacy, Anonymity, & Data Protection" },
-    { img: "monero.svg", name: "Monero" },
+    { img: "privacy.svg", name: "Privacy, Anonymity, & Data Protection",
+    	link: "/beginner-level/privacy-anonymity-and-data-protection" },
+    { img: "monero.svg", name: "Monero", link: "/beginner-level/monero" },
   ]
 
   const themeContext = useContext(ThemeContext);
@@ -120,7 +122,7 @@ export const Articles = ({ articles_list }) => {
               )}
               <CardWrapper key={`article__${i}`}>
                 <Col lg={{ span: 24 }} style={{ padding: 0 }} >
-                  <CardLink to={"brief-history-of-crypto"}>
+                  <CardLink to={article.link}>
                     <AricleImg img={images[article.img]}>
                       <ArticleTitle>{article.name}</ArticleTitle>
                     </AricleImg>
