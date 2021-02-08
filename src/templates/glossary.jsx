@@ -1,6 +1,8 @@
 import { Col, Row } from 'antd';
 import React from "react";
 import { graphql } from "gatsby";
+import styled from 'styled-components';
+
 
 import { Layout } from '@components/Layout';
 import { GlossaryList } from '@glossary/GlossaryList';
@@ -49,17 +51,23 @@ const Glossary = (props) => {
 								<GlossarySections level={level} />
 							</MarginBottom>
 						</Col>
-						<Col span={24}>
+						<StyledCol lg={21} md={24} xs={24}>
 							<MarginBottom>
 								<GlossaryList termIdsByLevelName={termIdsByLevelName} termById={termById} level={level} type={type} />
 							</MarginBottom>
-						</Col>
+						</StyledCol>
 					</Row>
 				</Container>
 			</Section>
 		</Layout>
 	);
 };
+
+const StyledCol = styled(Col)`
+	@media (min-width: ${({ theme }) => theme.screen.md}) {
+		margin: auto;
+  	}
+`
 
 export const query = graphql`
     query TermsQuery {
