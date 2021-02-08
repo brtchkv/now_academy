@@ -51,6 +51,12 @@ const StyledAnchor = styled(Anchor)`
 
 const StyledLink = styled(Link)`
   padding: 0 5px 0 5px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   & a {
     color: #fff;
     padding: 7px 12px;

@@ -1,12 +1,10 @@
 import { Col, Row } from 'antd';
 import * as React from 'react';
 import styled from 'styled-components';
-import { useRef } from 'react';
 
 import { GlossaryDropDown } from '@glossary/GlossaryDropDown';
 
 export const GlossaryList: React.FunctionComponent = ({ termById, termIdsByLevelName, level, type }) => {
-	const childRef = useRef();
 	const getSortedTermsByLevelName = (levelName) => {
 		return termIdsByLevelName[levelName].map(termId => termById[termId]).sort((termA, termB) => termA.name.localeCompare(termB.name));
 	};

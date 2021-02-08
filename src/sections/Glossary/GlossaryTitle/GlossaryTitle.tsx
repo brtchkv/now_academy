@@ -4,18 +4,18 @@ import * as React from 'react';
 export const GlossaryTitle = () => {
 	return (
 		<GlossaryTitleStyled>
-			<StyledH1>Glossary</StyledH1>
+			<StyledH3>Glossary</StyledH3>
 			<StyledSpan>Click on a term to learn more</StyledSpan>
 		</GlossaryTitleStyled>
 	)
 };
 
-const StyledH1 = styled.h1`
+const StyledH3 = styled.h3`
 	display: inline-block;
 	color: #fff;
 	font-weight: 300;
-	font-size: 38px;
-	line-height: 45px;
+    font-size: 32px;
+    line-height: 37px;
 	text-align: center;
 `;
 

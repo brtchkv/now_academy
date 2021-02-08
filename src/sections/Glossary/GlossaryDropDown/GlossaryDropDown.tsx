@@ -108,7 +108,7 @@ const StyledRow = styled(Row)`
 
 const TermName = styled.p`
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 18px;
   line-height: 27px;
   color: #ffffff;
@@ -119,19 +119,23 @@ const TermName = styled.p`
 `
 
 const TermDescription = styled.p`
-  font-size: 16px;
   color: ${({ theme }) => theme.color.gray.regular};
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 300 !important;
+  strong {
+    font-weight: 300 !important;
+  }
   font-size: 18px;
-  line-height: 27px;
+  line-height: 21px;
+  color: #AAAAAF;
 `
 
 const TermFullDescription = styled.p`
-  font-size: 16px;
   color: ${({ theme }) => theme.color.gray.regular};
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 300 !important;
   font-size: 18px;
-  line-height: 27px;
+  line-height: 21px;
+  color: #AAAAAF;
+  strong {
+    font-weight: 300 !important;
+  }
 `
