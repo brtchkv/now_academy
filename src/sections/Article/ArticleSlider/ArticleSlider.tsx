@@ -57,16 +57,11 @@ export const ArticleSlider = () => {
     </>
   )
 }
-
 const ProgressLine = styled.div`
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.color.green.regular} ${(props) => props.scroll},
-    transparent 0
-  );
+  background: linear-gradient(91deg, #00C26F ${(props) => props.scroll}, #515177 calc(${(props) => props.scroll} + 10%), transparent 0);
   width: 1%;
-  top: 0px;
-  height: 90%;
+  top: 0;
+  height: 96%;
   z-index: -2;
   position: absolute;
   right: 0;

@@ -8,11 +8,16 @@ import { useEffect } from "react"
 import { useContext } from "react"
 import { ThemeContext } from "styled-components"
 import './styles/styles.scss';
+import Scrollbar from 'smooth-scrollbar';
+
+const options = {
+  
+};
 
 export const Articles = ({ articles_list }) => {
   const [scrollPostion, setScrollPostion] = useState(0)
   const articles = [
-    { img: "origins.svg", name: "Origins of Crypto", link: "/beginner-level/the-origins-of-crypto"},
+    { img: "origins.svg", name: "Origins of Crypto", link: "/beginner-level/the-origins-of-crypto" },
     { img: "blockchain.svg", name: "Blockchain", link: "/beginner-level/blockchain-101" },
     { img: "bitcoin.svg", name: "Bitcoin", link: "/beginner-level/bitcoin" },
     { img: "mining.svg", name: "Mining", link: "/beginner-level/the-basics-of-mining" },
@@ -27,7 +32,7 @@ export const Articles = ({ articles_list }) => {
     { img: "economy.svg", name: "Crypto Economy & Tokenomics", link: "/beginner-level/crypto-economy-and-tokenomics" },
     { img: "trading.svg", name: "Crypto Exchanges & Trading", link: "/beginner-level/crypto-economy-and-tokenomics" },
     { img: "usdt.svg", name: "USDT Tether", link: "/beginner-level/usdt-and-stablecoins" },
-    { img: "cbdc.svg", name: "Crypto Legislation & CBDC", link: "/beginner-level/crypto-legislation"},
+    { img: "cbdc.svg", name: "Crypto Legislation & CBDC", link: "/beginner-level/crypto-legislation" },
     { img: "finance.svg", name: "Blockchain in Traditional Finance", link: "/beginner-level/blockchain-in-traditional-finance" },
     { img: "ripple.svg", name: "Ripple", link: "/beginner-level/ripple" },
     {
@@ -35,10 +40,14 @@ export const Articles = ({ articles_list }) => {
       name: "Prominent Blockchain Projects & Platforms Review",
       link: "/beginner-level/prominent-blockchain-projects-and-platforms-review"
     },
-    { img: "privacy.svg", name: "Privacy, Anonymity, & Data Protection",
-    	link: "/beginner-level/privacy-anonymity-and-data-protection" },
+    {
+      img: "privacy.svg", name: "Privacy, Anonymity & Data Protection",
+      link: "/beginner-level/privacy-anonymity-and-data-protection"
+    },
     { img: "monero.svg", name: "Monero", link: "/beginner-level/monero" },
   ]
+
+  // useEffect(() => { Scrollbar.init(document.getElementById('scrollbar'), options); });
 
   const themeContext = useContext(ThemeContext);
 
@@ -75,9 +84,9 @@ export const Articles = ({ articles_list }) => {
     const docHeight = getDocHeight()
 
     const totalDocScrollLength = docHeight - winHeight
-    const scrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100)
+    const scrollPostion = ((scrollTop / totalDocScrollLength) * 100)
 
-    setScrollPostion(scrollPostion)
+    setScrollPostion(scrollPostion + 5)
   }
 
   const getDocHeight = () => {
@@ -92,53 +101,55 @@ export const Articles = ({ articles_list }) => {
   }
 
   return (
-    <Row>
-      <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
-        <Row gutter={[16, 24]}>
-          <Col lg={{ span: 4 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
-          <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
-            <Title>Concept</Title>
-          </Col>
-          <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
-            <Title>Technology</Title>
-          </Col>
-          <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
-            <Title>Coin</Title>
-          </Col>
-        </Row>
-        <Row gutter={[16, 24]} justify="start" className={'tableContent'}>
-          {articles.map((article, i) => (
-            <>
-              {i % 3 === 0 && (
-                <ColSpanWrapper
-                  lg={{ span: 4 }}
-                  style={{ alignSelf: "center" }}
-                  key={`title__${i}`}
-                  md={{ span: 24 }}
-                  xs={{ span: 24 }}
-                >
-                  <Title>Step {i / 3 + 1}</Title>
-                </ColSpanWrapper>
-              )}
-              <CardWrapper key={`article__${i}`}>
-                <Col lg={{ span: 24 }} style={{ padding: 0 }} >
-                  <CardLink to={article.link}>
-                    <AricleImg img={images[article.img]}>
-                      <ArticleTitle>{article.name}</ArticleTitle>
-                    </AricleImg>
-                  </CardLink>
-                </Col>
-              </CardWrapper>
+    // <div id='scrollbar'>
+      <Row>
+        <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
+          <Row gutter={[16, 24]}>
+            <Col lg={{ span: 4 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
+            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+              <Title>Concept</Title>
+            </Col>
+            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+              <Title>Technology</Title>
+            </Col>
+            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+              <Title>Coin</Title>
+            </Col>
+          </Row>
+          <Row gutter={[16, 24]} justify="start" className={'tableContent'}>
+            {articles.map((article, i) => (
+              <>
+                {i % 3 === 0 && (
+                  <ColSpanWrapper
+                    lg={{ span: 4 }}
+                    style={{ alignSelf: "center" }}
+                    key={`title__${i}`}
+                    md={{ span: 24 }}
+                    xs={{ span: 24 }}
+                  >
+                    <Title>Step {i / 3 + 1}</Title>
+                  </ColSpanWrapper>
+                )}
+                <CardWrapper key={`article__${i}`}>
+                  <Col lg={{ span: 24 }} style={{ padding: 0 }} >
+                    <CardLink to={article.link}>
+                      <AricleImg img={images[article.img]}>
+                        <ArticleTitle>{article.name}</ArticleTitle>
+                      </AricleImg>
+                    </CardLink>
+                  </Col>
+                </CardWrapper>
 
-            </>
-          ))}
-        </Row>
-      </GridFixCol>
-      <Col lg={{ span: 1 }} md={{ span: 0 }} xs={{ span: 0 }}>
-        <Progress />
-        <ProgressLine scroll={scrollPostion + "%"} />
-      </Col>
-    </Row>
+              </>
+            ))}
+          </Row>
+        </GridFixCol>
+        <Col lg={{ span: 1 }} md={{ span: 0 }} xs={{ span: 0 }}>
+          <Progress />
+          <ProgressLine scroll={scrollPostion + "%"} />
+        </Col>
+      </Row>
+    // </div>
   )
 }
 
@@ -224,14 +235,10 @@ const CardLink = styled(Link)`
 `
 
 const ProgressLine = styled.div`
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.color.green.regular} ${(props) => props.scroll},
-    transparent 0
-  );
+  background: linear-gradient(91deg, #00C26F ${(props) => props.scroll}, #515177 calc(${(props) => props.scroll} + 10%), transparent 0);
   width: 3%;
-  top: 0px;
-  height: 90%;
+  top: 40px;
+  height: 96%;
   z-index: -2;
   position: absolute;
   right: 0;
@@ -252,8 +259,8 @@ const Progress = styled.div`
     transparent 0
   );
   width: 3%;
-  top: 0px;
-  height: 90%;
+  top: 40px;
+  height: 96%;
   z-index: -2;
   position: absolute;
   right: 0;

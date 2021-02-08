@@ -1,19 +1,30 @@
 import { Col, Row } from 'antd';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 
 import { Layout } from '@components/Layout';
 import { Navigation } from '@level/Navigation';
-import { LevelTerms } from '@level/Terms';
 import { Header } from '@level/Header';
 import { Articles } from '@level/Articles';
-import styled from "styled-components"
-
+import styled from "styled-components";
+import Scrollbar from 'smooth-scrollbar';
 import {
   Section,
   Container,
   MarginBottom
 } from '@components/global';
+
+const options = {
+
+};
+
+const overscrollOptions = {
+  enable: true,
+  effect: navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
+  damping: 0.2,
+  maxOverscroll: 150,
+  glowColor: '#222a2d',
+};
 
 const Level = ({ data }) => {
   const level = data.strapiLevel;
@@ -27,12 +38,25 @@ const Level = ({ data }) => {
   } = level;
   // const articles = orderedArticles.map(({ article }) => article);
   // console.log(level);
+
+  useEffect(() => {
+    Scrollbar.init(document.getElementById('scrollbar'), {
+      ...options,
+      delegateTo: document,
+      plugins: {
+        overscroll: { ...overscrollOptions },
+      },
+    })
+  });
+
+
   return (
-    <Layout>
+    <div id="scrollbar">
+      <Layout>
         <Container>
           <DesktopNavigation>
             <MarginBottom>
-              <Navigation {...{name, next_level, prev_level }} />
+              <Navigation {...{ name, next_level, prev_level }} />
             </MarginBottom>
           </DesktopNavigation>
           <Row>
@@ -41,7 +65,7 @@ const Level = ({ data }) => {
                 <Header name={name} description={'а step-by-step guide to the basics of crypto'} />
               </MarginBottom>
               <MarginBottom>
-                <Articles  />
+                <Articles />
               </MarginBottom>
             </Col>
           </Row>
@@ -49,7 +73,8 @@ const Level = ({ data }) => {
             <Navigation {...{ next_level, prev_level }} />
           </MobileNavigation>
         </Container>
-    </Layout>
+      </Layout>
+    </div>
   );
 };
 
