@@ -46,9 +46,6 @@ export const StyledContent = styled(Content)`
   @media (min-width: 1216px) {
     max-width: 1152px;
   }
-  @media (min-width: 1408px) {
-    max-width: 1344px;
-  }
 `
 
 export default LayoutComponent

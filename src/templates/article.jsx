@@ -47,15 +47,15 @@ const Article = ({ data, pageContext }) => {
 						<ArticleNavigation {...{prev, next, level}}/>
 					</MarginBottom> */}
 					<Row>
-						<Col md={{span: 17, offset: 3, order: 1}} xs={{order: 2}}>
+						<Col md={{span: 14, offset: 5, order: 1}} xs={{order: 2}}>
 							<MarginBottom>
-								<Header title={title} image={image}/>
+								<Header title={title} />
 							</MarginBottom>
 							<MarginBottom>
-								<ArticleSections sections={sections}/>
+								<ArticleSections sections={sections} image={image}/>
 							</MarginBottom>
 						</Col>
-						<StyledSlider md={{span: 2, offset: 2, order: 2}} xs={{ span: 0, offset: 0 }}>
+						<StyledSlider md={{span: 3, offset: 2, order: 2}} xs={{ span: 0, offset: 0 }}>
 							{articleSections}
 						</StyledSlider>
 					</Row>

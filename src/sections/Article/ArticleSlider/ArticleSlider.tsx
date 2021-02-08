@@ -64,7 +64,7 @@ const ProgressLine = styled.div`
     ${({ theme }) => theme.color.green.regular} ${(props) => props.scroll},
     transparent 0
   );
-  width: 3%;
+  width: 1%;
   top: 0px;
   height: 90%;
   z-index: -2;
@@ -78,7 +78,7 @@ const Progress = styled.div`
     ${({ theme }) => theme.color.blue.regular} 99%,
     transparent 0
   );
-  width: 3%;
+  width: 1%;
   top: 0px;
   height: 90%;
   z-index: -2;

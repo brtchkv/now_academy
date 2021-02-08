@@ -204,9 +204,6 @@ const StyledFooter = styled(Footer)`
 	max-width: 1152px;
 	padding: 24px 50px;
   }
-  @media (min-width: 1408px) {
-    max-width: 1344px;
-  }
 `
 
 const AdaptiveCol = styled(Col)`

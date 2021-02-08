@@ -128,6 +128,7 @@ const LevelCard = styled(Card)`
   color: #fff;
   line-height: 150%;
   border-radius: unset;
+  max-width: 365px;
   & .ant-card-cover {
     margin: 0;
     & img {
