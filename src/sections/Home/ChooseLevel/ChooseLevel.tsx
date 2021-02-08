@@ -61,7 +61,6 @@ export const ChooseLevel: React.FunctionComponent = () => {
         </SwiperSlide>
         <SwiperSlide>
           <ColCards md={24} xs={24}>
-            <Link to={"/intermediate-level"}>
               <CenterCard
                 bordered={false}
                 cover={<CardImg src={intermediate} />}
@@ -71,9 +70,8 @@ export const ChooseLevel: React.FunctionComponent = () => {
                   A closer look at decentralized finance, complex tech used in
                   crypto, digital markets, and trading.
                 </CardDescription>
-                <ActionButton>Start learning</ActionButton>
+                <ActionButton>Coming Soon</ActionButton>
               </CenterCard>
-            </Link>
           </ColCards>
         </SwiperSlide>
         <SwiperSlide>
@@ -142,9 +140,6 @@ const LevelCard = styled(Card)`
   }
   & .ant-card-head-title {
     height: 250px;
-  }
-  &:hover {
-    background: #616174;
   }
   transition: #fff 0.3s 0.0833333333s;
   position: relative;
