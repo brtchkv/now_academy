@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { MobileMenu } from './components/MobileMenu';
 import { DesktopMenu } from './components/DesktopMenu';
 import styled from 'styled-components';
-import logo from './components/logo.svg';
+import logo from './components/academyLogo.svg';
 import { Link } from 'gatsby';
 
 import {

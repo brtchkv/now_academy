@@ -6,7 +6,7 @@ import { Col, Row } from 'antd';
 
 
 import glossary from './glossary.svg';
-import logo from './logo.svg';
+import logo from './academyLogo.svg';
 import ChangeNow from './changenow.svg';
 
 export const Logos: React.FunctionComponent = () => {
@@ -14,7 +14,7 @@ export const Logos: React.FunctionComponent = () => {
 		<Row>
 			<Col span={24} style={{paddingBottom: '1rem'}}>
 				<StyledLink to="/">
-					<img src={logo} alt={"NowAcademy"} style={{ width: '135px' }} />
+					<img src={logo} alt={"NowAcademy"} style={{ width: '148px' }} />
 				</StyledLink>
 			</Col>
 			<Col span={24} style={{paddingBottom: '1rem'}}>

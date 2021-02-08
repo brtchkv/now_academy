@@ -78,8 +78,8 @@ export const FooterLayout: React.FunctionComponent = () => (
             <StyledHref target="_blank" href={"https://nownodes.io/"}>
               NOWNodes
             </StyledHref>
-            <StyledHref target="_blank">B2B Solutions</StyledHref>
-            <StyledHrefToken target="_blank">NOW Token</StyledHrefToken>
+            <StyledHref target="_blank" href={"https://changenow.io/for-partners"}>B2B Solutions</StyledHref>
+            <StyledHrefToken target="_blank" href={"https://changenow.io/tokens"}>NOW Token</StyledHrefToken>
           </Col>
           <Col span={8}>
             <SectionName>Company</SectionName>
@@ -95,9 +95,9 @@ export const FooterLayout: React.FunctionComponent = () => (
             >
               Privacy Policy
             </StyledHref>
-            <StyledHref target="_blank">Corporate responsibility</StyledHref>
-            <StyledHref target="_blank">For press</StyledHref>
-            <StyledHref target="_blank">Jobs</StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/business-ethics"}>Corporate Responsibility</StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/blog/"}>Blog</StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/jobs"}>Jobs</StyledHref>
           </Col>
         </Row>
       </Col>

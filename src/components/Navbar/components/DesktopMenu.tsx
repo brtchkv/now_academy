@@ -9,7 +9,7 @@ import { SelectProps } from "antd/es/select"
 import { SearchOutlined } from "@ant-design/icons"
 import changeNow from "./changenow.svg"
 
-import academy from "./logo.svg"
+import academy from "./academyLogo.svg"
 
 const { Search } = Input
 
