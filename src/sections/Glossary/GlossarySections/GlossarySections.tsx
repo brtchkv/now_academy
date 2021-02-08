@@ -41,10 +41,19 @@ const StyledAnchor = styled(Anchor)`
   }
   @media (min-width: ${(props) => props.theme.screen.lg}) {
     & .ant-anchor-link {
-      border-bottom: 2px solid ${({ theme }) => theme.color.blue.regular};
+      background: linear-gradient(90deg, rgba(62,62,89,1) 0%, rgba(62,62,89,1) 50%, rgba(62,62,89,1) 100%); 
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-size: 100% 2px;
+      background-position: bottom 0 left 0,bottom 1px left 0;
+      background-repeat: no-repeat;
     }
     & .ant-anchor-link:hover {
-      border-bottom: 2px solid ${({ theme }) => theme.color.green.regular};
+      background: linear-gradient(90deg, rgba(62,62,89,1) 0%, rgba(0,194,111,1) 50%, rgba(62,62,89,1) 100%);       background-position-x: 0%;
+      background-position-y: 0%;
+      background-size: 100% 2px;
+      background-position: bottom 0 left 0,bottom 1px left 0;
+      background-repeat: no-repeat;
     }
   }
 `

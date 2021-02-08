@@ -49,6 +49,13 @@ export const Articles = ({ articles_list }) => {
 
   // useEffect(() => { Scrollbar.init(document.getElementById('scrollbar'), options); });
 
+  // useEffect(() => {
+  //   Scrollbar.init(document.getElementById('scrollbar'), {
+  //     ...options,
+  //     delegateTo: document,
+  //   })
+  // });
+
   const themeContext = useContext(ThemeContext);
 
   function importAll(r) {
@@ -86,7 +93,7 @@ export const Articles = ({ articles_list }) => {
     const totalDocScrollLength = docHeight - winHeight
     const scrollPostion = ((scrollTop / totalDocScrollLength) * 100)
 
-    setScrollPostion(scrollPostion + 5)
+    setScrollPostion(scrollPostion + 7)
   }
 
   const getDocHeight = () => {
@@ -101,7 +108,6 @@ export const Articles = ({ articles_list }) => {
   }
 
   return (
-    // <div id='scrollbar'>
       <Row>
         <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
           <Row gutter={[16, 24]}>
@@ -149,7 +155,6 @@ export const Articles = ({ articles_list }) => {
           <ProgressLine scroll={scrollPostion + "%"} />
         </Col>
       </Row>
-    // </div>
   )
 }
 
@@ -235,7 +240,7 @@ const CardLink = styled(Link)`
 `
 
 const ProgressLine = styled.div`
-  background: linear-gradient(91deg, #00C26F ${(props) => props.scroll}, #515177 calc(${(props) => props.scroll} + 10%), transparent 0);
+  background: linear-gradient(91deg, #00C26F ${(props) => props.scroll}, #515177 calc(${(props) => props.scroll} + 6%),  transparent 0);
   width: 3%;
   top: 40px;
   height: 96%;

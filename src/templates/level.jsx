@@ -39,19 +39,8 @@ const Level = ({ data }) => {
   // const articles = orderedArticles.map(({ article }) => article);
   // console.log(level);
 
-  useEffect(() => {
-    Scrollbar.init(document.getElementById('scrollbar'), {
-      ...options,
-      delegateTo: document,
-      plugins: {
-        overscroll: { ...overscrollOptions },
-      },
-    })
-  });
-
 
   return (
-    <div id="scrollbar">
       <Layout>
         <Container>
           <DesktopNavigation>
@@ -74,7 +63,6 @@ const Level = ({ data }) => {
           </MobileNavigation>
         </Container>
       </Layout>
-    </div>
   );
 };
 
