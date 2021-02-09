@@ -247,6 +247,7 @@ const ProgressLine = styled.div`
   z-index: -2;
   position: absolute;
   right: 0;
+  transition: all 2s ease-out;
 `
 
 const ColSpanWrapper = styled(Col)`
