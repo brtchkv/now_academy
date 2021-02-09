@@ -13,17 +13,6 @@ import {
   MarginBottom
 } from '@components/global';
 
-const options = {
-
-};
-
-const overscrollOptions = {
-  enable: true,
-  effect: navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
-  damping: 0.2,
-  maxOverscroll: 150,
-  glowColor: '#222a2d',
-};
 
 const Level = ({ data }) => {
   const level = data.strapiLevel;
@@ -36,8 +25,6 @@ const Level = ({ data }) => {
     prev_level,
   } = level;
   // const articles = orderedArticles.map(({ article }) => article);
-  // console.log(level);
-
 
   return (
       <Layout>
