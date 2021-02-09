@@ -127,8 +127,8 @@ const StyledNav = styled.div`
 	@media (min-width: 1216px) {
 		max-width: 1152px;
 		padding: 24px 50px;
-		padding-left: 0rem;
-		padding-right: 0rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
 		margin: auto;
 	}
 `;
