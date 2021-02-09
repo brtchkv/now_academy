@@ -7,7 +7,6 @@ import { Navigation } from '@level/Navigation';
 import { Header } from '@level/Header';
 import { Articles } from '@level/Articles';
 import styled from "styled-components";
-import Scrollbar from 'smooth-scrollbar';
 import {
   Section,
   Container,
