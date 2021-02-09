@@ -111,16 +111,16 @@ export const Articles = ({ articles_list }) => {
       <Row>
         <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
           <Row gutter={[16, 24]}>
-            <Col lg={{ span: 3 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
-            <Col lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            <ResposiveStepCol lg={{ span: 3 }} md={{ span: 4 }} xs={{ span: 0 }}></ResposiveStepCol>
+            <ResponsiveTitleCol lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Concept</Title>
-            </Col>
-            <Col lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            </ResponsiveTitleCol>
+            <ResponsiveMiddleTitleCol lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Technology</Title>
-            </Col>
-            <Col lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            </ResponsiveMiddleTitleCol>
+            <ResponsiveTitleCol lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Coin</Title>
-            </Col>
+            </ResponsiveTitleCol>
           </Row>
           <Row gutter={[16, 24]} justify="start" className={'tableContent'}>
             {articles.map((article, i) => (
@@ -157,6 +157,44 @@ export const Articles = ({ articles_list }) => {
   )
 }
 
+const ResponsiveMiddleTitleCol = styled(Col)`
+  
+  @media (min-width: 1215px) {
+    display: block;
+    flex: 0 0 27%;
+    max-width: 27%;
+  }
+`
+
+const ResponsiveTitleCol = styled(Col)`
+  @media (min-width: 1024px) {
+    display: block;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  @media (min-width: 1215px) {
+    display: block;
+    flex: 0 0 29.16666667%;
+    max-width: 29.16666667%;
+  }
+`
+
+const ResposiveStepCol = styled(Col)`
+
+  @media (min-width: 1024px) {
+    display: block;
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+  }
+  
+  @media (min-width: 1215px) {
+    display: block;
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+`
+
 const ArticleTitle = styled.div`
   margin: auto;
   font-weight: lighter;
@@ -182,6 +220,10 @@ const AricleImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1200px) {
+    width: 218px;
+    height: 139px;
+  }
   @media (max-width: ${({ theme }) => theme.screen.xs}) {
     width: 100%;
     height: 57px;
@@ -247,6 +289,17 @@ const ColSpanWrapper = styled(Col)`
     margin-right: "auto";
     width: "100%";
   }
+  @media (min-width: 1024px) {
+    display: block;
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+  }
+  
+  @media (min-width: 1215px) {
+    display: block;
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
 `
 
 const Progress = styled.div`
@@ -280,6 +333,6 @@ const Title = styled.div`
 
 const GridFixCol = styled(Col)`
   @media (min-width: ${({ theme }) => theme.screen.md}) {
-    margin-left: -5px;
+    margin-left: -30px;
   }
 `

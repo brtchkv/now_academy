@@ -182,6 +182,9 @@ const StyledAutocomplete = styled(AutoComplete)`
   background: ${({ theme }) => theme.color.blue.light};
   width: 365px;
   height: 45px;
+  & .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: ${({ theme }) => theme.color.blue.lighter};
+  }
   & .ant-input-affix-wrapper {
     flex-direction: row-reverse;
   }

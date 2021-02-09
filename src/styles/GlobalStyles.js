@@ -606,6 +606,10 @@ img:hover {
     border-radius: 0;
 }
 
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: ${({theme}) => theme.color.blue.light};
+}
+
 background: ${({theme}) => theme.color.blue.regular};
 
 `;
