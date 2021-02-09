@@ -6,9 +6,9 @@ import { Breadcrumb } from 'antd';
 export const Navigation: React.FunctionComponent = ({name, prev_level, next_level }) => {
 	let next;
 
-	if (next_level) {
-		next = <LevelLink style={{marginLeft: 'auto'}} level={3} to={`/${next_level.slug}`}>{next_level.name} →</LevelLink>;
-	}
+	// if (next_level) {
+	// 	next = <LevelLink style={{marginLeft: 'auto'}} level={3} to={`/${next_level.slug}`}>{next_level.name} →</LevelLink>;
+	// }
 	return (
 		<NavigationBlock>
 			<StyledBreadcrumb separator="→">
@@ -24,7 +24,7 @@ export const Navigation: React.FunctionComponent = ({name, prev_level, next_leve
 					{name}
 				</Breadcrumb.Item>
 			</StyledBreadcrumb>
-			{next}
+			{/* {next} */}
 		</NavigationBlock>
 	);
 };

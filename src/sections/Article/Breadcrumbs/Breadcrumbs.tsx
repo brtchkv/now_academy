@@ -8,7 +8,7 @@ export const Breadcrumbs: React.FunctionComponent = ({ level, title, next, prev 
 		return slug ? `/${level.slug}/${slug}` : '';
 	};
 
-	const prevLesson = prev && (
+	const prevLesson = (prev && title !== "The Origins of Crypto") && (
 		<Link to={getSlug(prev.slug)}>
 			<NavigationItem style={{paddingRight: '1rem'}}>
 			← {prev.title}
@@ -16,7 +16,7 @@ export const Breadcrumbs: React.FunctionComponent = ({ level, title, next, prev 
 		</Link>
 	);
 
-	const nextLesson = next && (
+	const nextLesson = (next && title !== "Ripple") && (
 		<Link to={getSlug(next.slug)}>
 			<NavigationItem style={{textAlign: 'right'}}>
 				{next.title} →
@@ -61,6 +61,11 @@ const StyledBreadcrumb = styled(Breadcrumb)`
 	& a:hover {
 		color: ${({ theme }) => theme.color.green.regular};
 	}
+	font-size: 18px;
+	color: #AAAAAF;
+	white-space: nowrap;
+	line-height: 21px;
+	font-weight: lighter;
 `;
 
 const NavigationItem = styled.div`
@@ -83,6 +88,11 @@ const NavigationItem = styled.div`
 const NavigationArticles = styled.div`
 	display: flex;
 	flex-direction: row;
+	font-size: 18px;
+	color: #AAAAAF;
+	white-space: nowrap;
+	line-height: 21px;
+	font-weight: lighter;
 `
 
 const Navigation = styled.div`

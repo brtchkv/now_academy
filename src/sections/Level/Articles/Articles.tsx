@@ -30,7 +30,7 @@ export const Articles = ({ articles_list }) => {
     { img: "scaling.svg", name: "Scaling in Blockchain", link: "/beginner-level/blockchain-scaling" },
     { img: "eos.svg", name: "EOS", link: "/beginner-level/eos" },
     { img: "economy.svg", name: "Crypto Economy & Tokenomics", link: "/beginner-level/crypto-economy-and-tokenomics" },
-    { img: "trading.svg", name: "Crypto Exchanges & Trading", link: "/beginner-level/crypto-economy-and-tokenomics" },
+    { img: "trading.svg", name: "Crypto Exchanges & Trading", link: "/beginner-level/cryptocurrency-exchanges-and-trading" },
     { img: "usdt.svg", name: "USDT Tether", link: "/beginner-level/usdt-and-stablecoins" },
     { img: "cbdc.svg", name: "Crypto Legislation & CBDC", link: "/beginner-level/crypto-legislation" },
     { img: "finance.svg", name: "Blockchain in Traditional Finance", link: "/beginner-level/blockchain-in-traditional-finance" },
@@ -145,7 +145,6 @@ export const Articles = ({ articles_list }) => {
                     </CardLink>
                   </Col>
                 </CardWrapper>
-
               </>
             ))}
           </Row>

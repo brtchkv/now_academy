@@ -104,6 +104,7 @@ const LevelName = styled.p`
 
 const Slider = styled(Swiper)`
   padding-bottom: 2rem;
+  max-width: 980px;
   & .swiper-pagination-bullets {
     bottom: -5px;
     .swiper-pagination-bullet-active {

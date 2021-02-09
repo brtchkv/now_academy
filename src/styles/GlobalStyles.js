@@ -167,13 +167,27 @@ const GlobalStyles = createGlobalStyle`
 }
 
 h3 {
-    font-size: 2rem !important;
     font-weight: 300 !important;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.25;
     letter-spacing: normal;
-    color: #1a1917;
+    color: white;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 37px;
+    strong {
+        font-weight: 300 !important;
+    }
+}
+
+tbody {
+    tr {
+        td {
+            padding: .5rem;
+        }
+    }
 }
 
 .wp-content img {

@@ -43,21 +43,15 @@ const Article = ({ data, pageContext }) => {
 							</MarginBottom>
 						</Col>
 					</Row>
-					{/* <MarginBottom>
-						<ArticleNavigation {...{prev, next, level}}/>
-					</MarginBottom> */}
 					<Row>
-						<Col md={{span: 14, offset: 5, order: 1}} xs={{order: 2}}>
+						<StyledArticleCol md={{span: 14, order: 1}} xs={{order: 2}}>
 							<MarginBottom>
 								<Header title={title} />
 							</MarginBottom>
 							<MarginBottom>
 								<ArticleSections sections={sections} image={image}/>
 							</MarginBottom>
-						</Col>
-						<StyledSlider md={{span: 3, offset: 2, order: 2}} xs={{ span: 0, offset: 0 }}>
-							{articleSections}
-						</StyledSlider>
+						</StyledArticleCol>
 					</Row>
 				</Container>
 			</Section>
@@ -65,11 +59,8 @@ const Article = ({ data, pageContext }) => {
 	);
 };
 
-const StyledSlider = styled(Col)`
-  /* position: fixed;
-  right: 6rem;
-  width: 25px;
-  height: 400px; */
+const StyledArticleCol = styled(Col)`
+  margin: auto;
 `
 
 export const query = graphql`
