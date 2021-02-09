@@ -95,7 +95,7 @@ export const FooterLayout: React.FunctionComponent = () => (
             >
               Privacy Policy
             </StyledHref>
-            <StyledHref target="_blank" href={"https://changenow.io/business-ethics"}>Corporate Responsibility</StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/business-ethics"}>NOW Responsibility</StyledHref>
             <StyledHref target="_blank" href={"https://changenow.io/blog/"}>Blog</StyledHref>
             <StyledHref target="_blank" href={"https://changenow.io/jobs"}>Jobs</StyledHref>
           </Col>
