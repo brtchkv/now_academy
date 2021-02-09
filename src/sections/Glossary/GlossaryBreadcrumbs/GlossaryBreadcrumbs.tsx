@@ -15,10 +15,10 @@ export const GlossaryBreadcrumbs: React.FunctionComponent = ({
     <Navigation>
       <StyledBreadcrumb separator="→">
         <Breadcrumb.Item>
-          <Link to={"/"}>NOWAcademy</Link>
+          <StyledLink to={"/"}>NOWAcademy</StyledLink>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link to={`/${level.slug}`}>{level.name}</Link>
+          <StyledLink to={`/${level.slug}`}>{level.name}</StyledLink>
         </Breadcrumb.Item>
       </StyledBreadcrumb>
       <NavigationArticles>
@@ -29,7 +29,11 @@ export const GlossaryBreadcrumbs: React.FunctionComponent = ({
 }
 
 const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.color.gray.regular};
+  font-size: 18px;
+	color: #AAAAAF;
+	white-space: nowrap;
+	line-height: 21px;
+	font-weight: lighter;
   &:hover {
     color: ${({ theme }) => theme.color.green.regular};
   }

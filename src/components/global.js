@@ -24,10 +24,7 @@ export const Container = styled(Content)`
   @media (min-width: ${(props) => props.theme.screen.lg}) {
     max-width: 1152px;
   }
-  @media (min-width: ${(props) => props.theme.screen.xlg}) {
-    max-width: 1344px;
-  }
-
+  
   ${(props) =>
     props.fluid &&
     `
@@ -60,7 +57,6 @@ export const MarginBottom = styled.div`
 `
 
 export const Section = styled.section`
-  padding: 25px 0;
   overflow: hidden;
   width: 100%;
 

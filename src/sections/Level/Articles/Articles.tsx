@@ -111,14 +111,14 @@ export const Articles = ({ articles_list }) => {
       <Row>
         <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
           <Row gutter={[16, 24]}>
-            <Col lg={{ span: 4 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
-            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            <Col lg={{ span: 5 }} md={{ span: 4 }} xs={{ span: 0 }}></Col>
+            <Col lg={{ span: 5 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Concept</Title>
             </Col>
-            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            <Col lg={{ span: 5 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Technology</Title>
             </Col>
-            <Col lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
+            <Col lg={{ span: 5 }} md={{ span: 0 }} xs={{ span: 0 }}>
               <Title>Coin</Title>
             </Col>
           </Row>
@@ -127,7 +127,7 @@ export const Articles = ({ articles_list }) => {
               <>
                 {i % 3 === 0 && (
                   <ColSpanWrapper
-                    lg={{ span: 4 }}
+                    lg={{ span: 5 }}
                     style={{ alignSelf: "center" }}
                     key={`title__${i}`}
                     md={{ span: 24 }}
@@ -177,19 +177,11 @@ const AricleImg = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 310px;
-  height: 182px;
+  width: 218px;
+  height: 139px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: ${({ theme }) => theme.screen.xlg}) {
-    width: 265px;
-    height: 136px;
-  }
-  @media (max-width: 1200px) {
-    width: 218px;
-    height: 139px;
-  }
   @media (max-width: ${({ theme }) => theme.screen.xs}) {
     width: 100%;
     height: 57px;
@@ -288,9 +280,6 @@ const Title = styled.div`
 
 const GridFixCol = styled(Col)`
   @media (min-width: ${({ theme }) => theme.screen.md}) {
-    margin-left: -15px;
-  }
-  @media (min-width: ${({ theme }) => theme.screen.lg}) {
-    margin-left: -21px;
+    margin-left: -5px;
   }
 `

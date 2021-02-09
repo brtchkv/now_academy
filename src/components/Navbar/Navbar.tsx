@@ -118,6 +118,19 @@ export const Navbar: React.FunctionComponent = () => {
 const StyledNav = styled.div`
 	max-width: '100%';
 	background-color: '#2B2B36';
+	@media (min-width: 1024px) {
+		max-width: 960px;
+		padding-left: 0px;
+		padding-right: 0px;
+		margin: auto;
+  	}
+	@media (min-width: 1216px) {
+		max-width: 1152px;
+		padding: 24px 50px;
+		padding-left: 0rem;
+		padding-right: 0rem;
+		margin: auto;
+	}
 `;
 
 const StyledCol = styled(Col)`

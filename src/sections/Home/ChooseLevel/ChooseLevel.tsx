@@ -104,7 +104,7 @@ const LevelName = styled.p`
 
 const Slider = styled(Swiper)`
   padding-bottom: 2rem;
-  max-width: 980px;
+  max-width: 1125px;
   & .swiper-pagination-bullets {
     bottom: -5px;
     .swiper-pagination-bullet-active {
@@ -129,7 +129,7 @@ const LevelCard = styled(Card)`
   color: #fff;
   line-height: 150%;
   border-radius: unset;
-  max-width: 365px;
+  max-width: 521px;
   & .ant-card-cover {
     margin: 0;
     & img {

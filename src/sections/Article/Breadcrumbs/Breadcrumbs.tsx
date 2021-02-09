@@ -8,7 +8,7 @@ export const Breadcrumbs: React.FunctionComponent = ({ level, title, next, prev 
 		return slug ? `/${level.slug}/${slug}` : '';
 	};
 
-	const prevLesson = (prev && title !== "The Origins of Crypto") && (
+	const prevLesson = (prev) && (
 		<Link to={getSlug(prev.slug)}>
 			<NavigationItem style={{paddingRight: '1rem'}}>
 			← {prev.title}
@@ -16,7 +16,7 @@ export const Breadcrumbs: React.FunctionComponent = ({ level, title, next, prev 
 		</Link>
 	);
 
-	const nextLesson = (next && title !== "Ripple") && (
+	const nextLesson = (next) && (
 		<Link to={getSlug(next.slug)}>
 			<NavigationItem style={{textAlign: 'right'}}>
 				{next.title} →

@@ -78,8 +78,18 @@ export const FooterLayout: React.FunctionComponent = () => (
             <StyledHref target="_blank" href={"https://nownodes.io/"}>
               NOWNodes
             </StyledHref>
-            <StyledHref target="_blank" href={"https://changenow.io/for-partners"}>B2B Solutions</StyledHref>
-            <StyledHrefToken target="_blank" href={"https://changenow.io/tokens"}>NOW Token</StyledHrefToken>
+            <StyledHref
+              target="_blank"
+              href={"https://changenow.io/for-partners"}
+            >
+              B2B Solutions
+            </StyledHref>
+            <StyledHrefToken
+              target="_blank"
+              href={"https://changenow.io/tokens"}
+            >
+              NOW Token
+            </StyledHrefToken>
           </Col>
           <Col span={8}>
             <SectionName>Company</SectionName>
@@ -95,9 +105,18 @@ export const FooterLayout: React.FunctionComponent = () => (
             >
               Privacy Policy
             </StyledHref>
-            <StyledHref target="_blank" href={"https://changenow.io/business-ethics"}>NOW Responsibility</StyledHref>
-            <StyledHref target="_blank" href={"https://changenow.io/blog/"}>Blog</StyledHref>
-            <StyledHref target="_blank" href={"https://changenow.io/jobs"}>Jobs</StyledHref>
+            <StyledHref
+              target="_blank"
+              href={"https://changenow.io/business-ethics"}
+            >
+              NOW Responsibility
+            </StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/blog/"}>
+              Blog
+            </StyledHref>
+            <StyledHref target="_blank" href={"https://changenow.io/jobs"}>
+              Jobs
+            </StyledHref>
           </Col>
         </Row>
       </Col>
@@ -108,7 +127,8 @@ export const FooterLayout: React.FunctionComponent = () => (
 const SocialIcon = styled.img`
   margin-right: 25px;
   &:hover {
-    filter: invert(45%) sepia(100%) saturate(1457%) hue-rotate(122deg) brightness(99%) contrast(101%);;
+    filter: invert(45%) sepia(100%) saturate(1457%) hue-rotate(122deg)
+      brightness(99%) contrast(101%);
   }
 `
 
@@ -190,7 +210,7 @@ const StyledFooter = styled(Footer)`
     padding: 1.3rem;
     flex-flow: row;
   }
-  
+
   width: 100% !important;
   margin: 0 auto;
   padding: 24px 50px;
@@ -201,8 +221,10 @@ const StyledFooter = styled(Footer)`
     padding-right: 0px;
   }
   @media (min-width: 1216px) {
-	max-width: 1152px;
-	padding: 24px 50px;
+    max-width: 1152px;
+    padding: 24px 50px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `
 
