@@ -119,6 +119,7 @@ const StyledNav = styled.div`
 	max-width: '100%';
 	background-color: '#2B2B36';
 	@media (min-width: 1024px) {
+		padding: 24px 0;
 		max-width: 960px;
 		padding-left: 0px;
 		padding-right: 0px;

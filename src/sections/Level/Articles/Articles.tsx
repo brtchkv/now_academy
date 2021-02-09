@@ -133,7 +133,7 @@ export const Articles = ({ articles_list }) => {
                     md={{ span: 24 }}
                     xs={{ span: 24 }}
                   >
-                    <TitleSpan>Step {i / 3 + 1}</TitleSpan>
+                    <Title>Step {i / 3 + 1}</Title>
                   </ColSpanWrapper>
                 )}
                 <CardWrapper key={`article__${i}`}>
@@ -328,12 +328,6 @@ const Title = styled.div`
   align-self: center;
   @media (max-width: ${({ theme }) => theme.screen.xs}) {
     text-align: left;
-  }
-`
-
-const TitleSpan = styled(Title)`
-  @media (min-width: 1215px) {
-    padding-left: 2rem;
   }
 `
 

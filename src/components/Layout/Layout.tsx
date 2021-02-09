@@ -23,7 +23,9 @@ export const LayoutComponent: React.FunctionComponent<Prop> = ({
     <Helmet title="NOWAcademy"></Helmet>
     <Navbar />
     <GlobalStyles />
-    {children}
+    <StyledContent>
+      {children}
+    </StyledContent>
     <FooterLayout />
   </ThemeProvider>
 )
@@ -45,6 +47,8 @@ export const StyledContent = styled(Content)`
   }
   @media (min-width: 1216px) {
     max-width: 1152px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `
 

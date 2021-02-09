@@ -37,7 +37,7 @@ const Article = ({ data, pageContext }) => {
 			<Section>
 				<Container>
 					<Row>
-						<Col lg={{span: 24}} xs={{span: 0}} md={{span: 24}}>
+						<Col lg={{span: 24}} xs={{span: 0}} md={{span: 0}}>
 							<MarginBottom>
 								<Breadcrumbs level={level} title={title} {...{prev, next, level}}/>
 							</MarginBottom>

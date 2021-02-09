@@ -34,10 +34,6 @@ const NavigationBlock = styled.div`
 	width: 100%;
   	justify-content: space-between;
 	padding-top: .5rem;
-	@media (min-width: 1216px) {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
 `;
 
 
