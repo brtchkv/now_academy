@@ -64,6 +64,7 @@ const ProgressLine = styled.div`
   height: 96%;
   z-index: -2;
   position: absolute;
+  transition: all 2s ease-out;
   right: 0;
 `
 
