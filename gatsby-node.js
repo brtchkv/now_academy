@@ -62,7 +62,11 @@ exports.createPages = async ({
   }
 
   const levels = result.data.levels.edges;
-  const articles = result.data.allStrapiArticle.edges;
+  const articles = result.data.allStrapiArticle.edges.sort(function(a, b) {
+    if (a.node.strapiId < b.node.strapiId) return -1;
+    if (a.node.strapiId > b.node.strapiId) return 1;
+    return 0;
+  });
   const allStrapiTerm = result.data.strapiTerms.nodes;
   const cryptocurrencyMainTerms = result.data.cryptocurrencyIn3Minutes.terms;
 
