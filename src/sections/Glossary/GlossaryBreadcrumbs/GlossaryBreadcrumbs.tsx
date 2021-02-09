@@ -83,6 +83,10 @@ const Navigation = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media (min-width: 1216px) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 `
 
 const Title = styled.p`
