@@ -7,7 +7,7 @@ import { Col, Row } from 'antd';
 
 import glossary from './glossary.svg';
 import logo from './academyLogo.svg';
-import ChangeNow from './changenow.svg';
+import ChangeNow from './changeNow.svg';
 
 export const Logos: React.FunctionComponent = () => {
 	return (

@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 import { Input, AutoComplete } from "antd"
 import { SelectProps } from "antd/es/select"
 import { SearchOutlined } from "@ant-design/icons"
-import changeNow from "./changenow.svg"
+import changeNow from "./changeNow.svg"
 
 import academy from "./academyLogo.svg"
 
