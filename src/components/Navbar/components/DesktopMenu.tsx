@@ -15,9 +15,6 @@ const { Search } = Input
 
 export const DesktopMenu = (props) => {
   const slugAndTextList = [["glossary", "Glossary"]]
-  const pathname =
-    (typeof window !== "undefined" && window.location.pathname) || ""
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
   const [options, setOptions] = useState<SelectProps<object>["options"]>([])
   let data = props.data;
 
@@ -25,24 +22,17 @@ export const DesktopMenu = (props) => {
     navigate(`/${key}`)
   }
 
-  useEffect(() => {
-    const [selectedSlug] = slugAndTextList.find(([slug]) =>
-      pathname.includes(slug)
-    ) || [""]
-    setSelectedKeys([selectedSlug])
-  }, [])
-
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
-        return term.name.toLowerCase().includes(query.toLowerCase())
+        return term.name.toLowerCase().startsWith(query.toLowerCase())
       })
-      .map((term) => {
+      .map((term, i) => {
         return {
-          value: term.name,
+          value: term.id,
           label: (
             <StyledElSearch
-              key={term.id}
+            key={`term__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: term.name.toLowerCase() },
@@ -64,14 +54,14 @@ export const DesktopMenu = (props) => {
   const searchArticleResult = (query: string, data) => {
     return data.allStrapiArticle.nodes
       .filter((article) => {
-        return article.title.toLowerCase().includes(query.toLowerCase())
+        return article.title.toLowerCase().startsWith(query.toLowerCase())
       })
-      .map((article) => {
+      .map((article, i) => {
         return {
-          value: article.title,
+          value: article.id,
           label: (
             <StyledElSearch
-              key={article.id}
+            key={`article__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: article.title.toLowerCase() },
@@ -132,7 +122,7 @@ export const DesktopMenu = (props) => {
   }
 
   return (
-    <StyledMainMenu mode="horizontal" selectedKeys={selectedKeys} selectable>
+    <StyledMainMenu mode="horizontal">
       <StyledMenuItemWithoutBorder style={{ marginLeft: 0, paddingLeft: 0 }}>
         <StyledLogoLink to="/">
           <img src={academy} alt={"AcademyNow"} style={{ width: "205px" }} />

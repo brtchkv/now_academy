@@ -20,14 +20,15 @@ export const MobileSearch = (props) => {
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
-        return term.name.toLowerCase().includes(query.toLowerCase())
+        return term.name.toLowerCase().startsWith(query.toLowerCase())
       })
-      .map((term) => {
+      .map((term, i) => {
+        console.log(term, query)
         return {
           value: term.name,
           label: (
             <StyledElSearch
-              key={term.id}
+              key={`term__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: term.name.toLowerCase() },
@@ -48,14 +49,14 @@ export const MobileSearch = (props) => {
   const searchArticleResult = (query: string, data) => {
     return data.allStrapiArticle.nodes
       .filter((article) => {
-        return article.title.toLowerCase().includes(query.toLowerCase())
+        return article.title.toLowerCase().startsWith(query.toLowerCase())
       })
-      .map((article) => {
+      .map((article, i) => {
         return {
           value: article.title,
           label: (
             <StyledElSearch
-              key={article.id}
+              key={`article__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: article.title.toLowerCase() },
@@ -86,6 +87,7 @@ export const MobileSearch = (props) => {
     let articles = searchArticleResult(value, data)
     let titleAndTerms = []
     let titleAndArticles = []
+    let result
     if (terms.length > 0) {
       titleAndTerms = [
         {
@@ -110,16 +112,20 @@ export const MobileSearch = (props) => {
           ),
         },
       ]
-      articles = [titleAndArticles[0]].concat(articles)
+      result = [titleAndArticles[0]].concat(articles)
     }
-    setOptions(value ? terms.concat(articles) : [])
+    setOptions(value ? terms.concat(result) : [])
   }
 
   return (
     <List>
-      <StyledAutocomplete options={options} onSearch={handleSearch}>
-        <Input size="large" placeholder="Search for anything..." />
-      </StyledAutocomplete>
+      <StyledSearch
+        placeholder="Search for anything..."
+        onSearch={async (value) => {
+          await navigate("/search", { state: { search: value } })
+          props.onClose()
+        }}
+      />
       <Moto>Everything you need to know about the world of crypto</Moto>
     </List>
   )
@@ -131,15 +137,31 @@ const Moto = styled.span`
   font-size: 30px;
   line-height: 35px;
   color: white;
+  padding-top: 1rem;
 `
 
 const StyledAutocompleteRow = styled(Row)`
   width: 100%;
 `
 
-const StyledAutocomplete = styled(AutoComplete)`
+const StyledSearch = styled(Input.Search)`
   width: 100%;
-  height: 80px;
+  height: 50px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  margin-bottom: 1.5rem;
+  border-color: ${({ theme }) => theme.color.blue.light};
+
+  .ant-input-search:not(.ant-input-search-enter-button) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .ant-input-suffix {
+    display: none;
+  }
   & .ant-input-affix-wrapper {
     flex-direction: row-reverse;
   }
@@ -173,13 +195,8 @@ const StyledAutocomplete = styled(AutoComplete)`
     color: ${({ theme }) => theme.color.gray.regular} !important;
   }
 
-  .ant-input-affix-wrapper:hover {
-    border: none;
-    box-shadow: none;
-  }
-
   .ant-input {
-	height: 70%
+    height: 70%;
     align-self: center;
     border: none;
     border-bottom: 1px solid ${({ theme }) => theme.color.blue.light};
@@ -189,14 +206,19 @@ const StyledAutocomplete = styled(AutoComplete)`
       font-size: 18px;
       line-height: 21px;
     }
-	&:focus{
-		box-shadow: none;
-	}
+    &:focus {
+      box-shadow: none;
+    }
   }
 
-  .ant-input-affix-wrapper:focus {
+  &.ant-input-affix-wrapper:hover, &.ant-input-affix-wrapper:focus {
     border: none;
     box-shadow: none;
+  }
+
+  &.ant-input-affix-wrapper-focused {
+    box-shadow: none;
+    border-right: none;
   }
 
   & .anticon {
@@ -212,7 +234,7 @@ const StyledAutocomplete = styled(AutoComplete)`
     height: 45px;
   }
   .ant-select-selector {
-	  height: 100%
+    height: 100%;
   }
 `
 

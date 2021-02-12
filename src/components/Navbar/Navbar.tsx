@@ -51,13 +51,6 @@ export const Navbar: React.FunctionComponent = () => {
         nodes {
           id
           name
-          term_type {
-            name
-          }
-          level {
-            name
-            slug
-          }
         }
       }
     }
@@ -91,7 +84,7 @@ export const Navbar: React.FunctionComponent = () => {
 									width={'100%'}
 									style={{ color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto' }}
 								>
-									<MobileSearch data={data} />
+									<MobileSearch data={data} onClose={onCloseSearch}/>
 								</StyledDrawer>
 								<StyledSearchOutlined style={{ color: '#fff', fontSize: '25px', alignSelf: 'center', marginLeft: 'auto' }} onClick={showSearch} />
 							</StyledCol>
