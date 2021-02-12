@@ -68,7 +68,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
                   A closer look at decentralized finance, complex tech used in
                   crypto, digital markets, and trading.
                 </CardDescription>
-                <ActionButton>Coming Soon</ActionButton>
+                <ComingSoon>Coming Soon</ComingSoon>
               </CenterCard>
           </ColCards>
         </SwiperSlide>
@@ -80,7 +80,7 @@ export const ChooseLevel: React.FunctionComponent = () => {
                 An in-depth review of processes, phenomena, and events related
                 to the crypto industry.
               </CardDescription>
-              <ActionButton>Coming Soon</ActionButton>
+              <ComingSoon>Coming Soon</ComingSoon>
             </RightCard>
           </ColCards>
         </SwiperSlide>
@@ -163,6 +163,23 @@ const CommingSoon = styled.div`
   margin-left: auto;
   margin-right: auto;
 `
+
+const ComingSoon = styled.div`
+  line-height: 14px;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: #ffffff;
+  padding: 14px 22px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #fff;
+
+  transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
+  position: relative;
+  `
 
 const ActionButton = styled(Link)`
   line-height: 14px;
