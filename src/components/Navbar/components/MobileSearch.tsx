@@ -20,7 +20,7 @@ export const MobileSearch = (props) => {
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
-        return term.name.toLowerCase().startsWith(query.toLowerCase())
+        return term.name.toLowerCase().includes(query.toLowerCase())
       })
       .map((term, i) => {
         console.log(term, query)
@@ -49,7 +49,7 @@ export const MobileSearch = (props) => {
   const searchArticleResult = (query: string, data) => {
     return data.allStrapiArticle.nodes
       .filter((article) => {
-        return article.title.toLowerCase().startsWith(query.toLowerCase())
+        return article.title.toLowerCase().includes(query.toLowerCase())
       })
       .map((article, i) => {
         return {

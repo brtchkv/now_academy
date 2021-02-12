@@ -14,10 +14,10 @@ const Level = (props) => {
 	const { data, location } = props;
 	const search = location.state ? location.state.search : undefined;
 	const articles = data.allStrapiArticle.nodes.filter(article => {
-		return !search || article.title.toLowerCase().startsWith(search.toLowerCase());
+		return !search || article.title.toLowerCase().includes(search.toLowerCase());
 	});
 	const terms = data.allStrapiTerm.nodes.filter(term => {
-		return !search || term.name.toLowerCase().startsWith(search.toLowerCase());
+		return !search || term.name.toLowerCase().includes(search.toLowerCase());
 	});
 	return (
 		<Layout>
