@@ -1,4 +1,4 @@
-import { Menu, Dropdown, Row, Col } from "antd"
+import { Menu, Dropdown, Row, Col, Form } from "antd"
 import * as React from "react"
 import { graphql, navigate, StaticQuery, useStaticQuery } from "gatsby"
 import styled from "styled-components"
@@ -16,6 +16,7 @@ const { Search } = Input
 export const DesktopMenu = (props) => {
   const slugAndTextList = [["glossary", "Glossary"]]
   const [options, setOptions] = useState<SelectProps<object>["options"]>([])
+  const [query, setQuery] = useState('');
   let data = props.data;
 
   const onClick = (e, { key }) => {
@@ -26,13 +27,13 @@ export const DesktopMenu = (props) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
         return term.name.toLowerCase().includes(query.toLowerCase())
-      })  
+      })
       .map((term, i) => {
         return {
-          value: term.name.concat(` ${term.term_type !== null ? term.term_type.name: ''}`),
+          value: term.name.concat(` ${term.term_type !== null ? term.term_type.name : ''}`),
           label: (
             <StyledElSearch
-            key={`term__${i}`}
+              key={`term__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: term.name.toLowerCase() },
@@ -61,7 +62,7 @@ export const DesktopMenu = (props) => {
           value: article.title,
           label: (
             <StyledElSearch
-            key={`article__${i}`}
+              key={`article__${i}`}
               onClick={async (value) => {
                 await navigate("/search", {
                   state: { search: article.title.toLowerCase() },
@@ -121,6 +122,10 @@ export const DesktopMenu = (props) => {
     setOptions(value ? terms.concat(articles) : [])
   }
 
+  const onKeyDown = (e) => {
+    console.log('onKeyDown', e, e.target.value);
+  }
+
   return (
     <StyledMainMenu mode="horizontal">
       <StyledMenuItemWithoutBorder style={{ marginLeft: 0, paddingLeft: 0 }}>
@@ -137,11 +142,17 @@ export const DesktopMenu = (props) => {
           dropdownMatchSelectWidth={252}
           options={options}
           onSearch={handleSearch}
+          onPressEnter={handleSearch}
         >
           <Input
             suffix={<SearchOutlined />}
             size="large"
             placeholder="Search for anything..."
+            onPressEnter={async (e) => {
+              await navigate("/search", {
+                state: { search: e.target.value },
+              })
+            }}
           />
         </StyledAutocomplete>
       </StyledMenuItemWithoutBorder>
