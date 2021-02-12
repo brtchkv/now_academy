@@ -10,7 +10,6 @@ export const FoundTerms = ({ terms }) => {
 	}, {});
 	return (
 		<>
-			{terms.length ? <h2>Found terms:</h2> : undefined}
 			<GlossaryList terms={terms} termById={termById}/>
 		</>
 	)

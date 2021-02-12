@@ -24,7 +24,7 @@ const Level = (props) => {
 			<Section>
 				<Container>
 					<MarginBottom>
-						<h1>{search ? `You’ve been looking for: "${search}"` : 'All data'}</h1>
+						<h1>{search ? `You’ve been looking for: ` : 'All data'}</h1>
 					</MarginBottom>
 					<FoundTerms terms={terms}/>
           <FoundArticles articles={articles}/>
