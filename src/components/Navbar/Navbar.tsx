@@ -51,6 +51,9 @@ export const Navbar: React.FunctionComponent = () => {
         nodes {
           id
           name
+		  term_type {
+            name
+          }
         }
       }
     }

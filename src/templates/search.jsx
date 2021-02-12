@@ -14,20 +14,20 @@ const Level = (props) => {
 	const { data, location } = props;
 	const search = location.state ? location.state.search : undefined;
 	const articles = data.allStrapiArticle.nodes.filter(article => {
-		return !search || article.title.toLowerCase().includes(search.toLowerCase());
+		return !search || article.title.toLowerCase().startsWith(search.toLowerCase());
 	});
 	const terms = data.allStrapiTerm.nodes.filter(term => {
-		return !search || term.name.toLowerCase().includes(search.toLowerCase());
+		return !search || term.name.toLowerCase().startsWith(search.toLowerCase());
 	});
 	return (
 		<Layout>
 			<Section>
 				<Container>
 					<MarginBottom>
-						<h1>{search ? `Search results for: "${search}"` : 'All data'}</h1>
+						<h1>{search ? `You’ve been looking for: "${search}"` : 'All data'}</h1>
 					</MarginBottom>
-					<FoundArticles articles={articles}/>
 					<FoundTerms terms={terms}/>
+          <FoundArticles articles={articles}/>
 				</Container>
 			</Section>
 		</Layout>

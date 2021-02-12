@@ -5,7 +5,7 @@ import { GlossaryList } from '@glossary/GlossaryList';
 
 export const FoundTerms = ({ terms }) => {
 	const termById = terms.reduce((acc, term) => {
-		acc[term.strapiId] = term;
+		acc[term.id] = term;
 		return acc;
 	}, {});
 	return (

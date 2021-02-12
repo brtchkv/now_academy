@@ -135,7 +135,8 @@ export const Articles = ({ articles_list }) => {
                   >
                     <Title>Step {i / 3 + 1}</Title>
                   </ColSpanWrapper>
-                )}
+                )
+                }
                 <CardWrapper key={`article__${i}`}>
                   <Col lg={{ span: 24 }} style={{ padding: 0 }} >
                     <CardLink to={article.link}>

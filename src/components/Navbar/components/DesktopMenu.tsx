@@ -26,10 +26,10 @@ export const DesktopMenu = (props) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
         return term.name.toLowerCase().startsWith(query.toLowerCase())
-      })
+      })  
       .map((term, i) => {
         return {
-          value: term.id,
+          value: term.name.concat(` ${term.term_type !== null ? term.term_type.name: ''}`),
           label: (
             <StyledElSearch
             key={`term__${i}`}
@@ -58,7 +58,7 @@ export const DesktopMenu = (props) => {
       })
       .map((article, i) => {
         return {
-          value: article.id,
+          value: article.title,
           label: (
             <StyledElSearch
             key={`article__${i}`}

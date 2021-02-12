@@ -47,16 +47,14 @@ export const ChooseLevel: React.FunctionComponent = () => {
       >
         <SwiperSlide>
           <ColCards md={24} xs={24}>
-            <Link to={"/beginner-level"}>
               <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
                 <LevelName>Beginner</LevelName>
                 <CardDescription>
                   Introduction to crypto: basic concepts, foundational tech,
                   renowned projects, and popular coins.
                 </CardDescription>
-                <ActionButton>Start learning</ActionButton>
+                <ActionButton to={"/beginner-level"}>Start learning</ActionButton>
               </LeftCard>
-            </Link>
           </ColCards>
         </SwiperSlide>
         <SwiperSlide>
@@ -143,46 +141,7 @@ const LevelCard = styled(Card)`
   & .ant-card-head-title {
     height: 250px;
   }
-  transition: #fff 0.3s 0.0833333333s;
-  position: relative;
 
-  &::before,
-  &::after {
-    border: 0 solid transparent;
-    box-sizing: border-box;
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 0;
-    left: 0;
-  }
-  &::before {
-    border-bottom-width: 1px;
-    border-right-width: 1px;
-  }
-  &::after {
-    border-top-width: 1px;
-    border-left-width: 1px;
-  }
-  &:hover {
-    color: #fff;
-    border: none;
-  }
-  &:hover::before,
-  &:hover::after {
-    border-color: #fff;
-    transition: border-color 0s, width 0.3s, height 0.3s;
-    width: 100%;
-    height: 100%;
-  }
-  &:hover::before {
-    transition-delay: 0s, 0s, 0.3s;
-  }
-  &:hover::after {
-    transition-delay: 0s, 0.3s, 0s;
-  }
 `
 
 const CardDescription = styled.p`
@@ -205,7 +164,7 @@ const CommingSoon = styled.div`
   margin-right: auto;
 `
 
-const ActionButton = styled.div`
+const ActionButton = styled(Link)`
   line-height: 14px;
   font-size: 16px;
   letter-spacing: 0.15em;

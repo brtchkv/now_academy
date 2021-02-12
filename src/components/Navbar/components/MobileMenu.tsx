@@ -12,9 +12,9 @@ export const MobileMenu = (props) => {
 		{
 			'Learn':
 				[
-					['beginner-level', 'Beginner'],
-					['intermediate-level', 'Intermediate'],
-					['advanced-level', 'Advanced'],
+					['/beginner-level', 'Beginner'],
+					['/intermediate', 'Intermediate'],
+					['/advanced', 'Advanced'],
 				]
 		},
 		{
@@ -23,7 +23,7 @@ export const MobileMenu = (props) => {
 					['https://changenow.io/', 'ChangeNOW'],
 					['https://nowpayments.io/', 'NOWPayments'],
 					['https://nownodes.io/', 'NOWNodes'],
-					['https://changenow.io/b2b', 'B2B Solutions'],
+					['https://changenow.io/for-partners', 'B2B Solutions'],
 					['https://changenow.io/token', 'NOW Token']
 				]
 		},
@@ -32,8 +32,8 @@ export const MobileMenu = (props) => {
 				[
 					['https://changenow.io/terms-of-use', 'Terms of Use'],
 					['https://changenow.io/privacy-policy', 'Privacy Policy'],
-					['https://changenow.io/', 'Corporate responsibility'],
-					['https://changenow.io/', 'For press'],
+					['https://changenow.io/business-ethics', 'NOW responsibility'],
+					['https://changenow.io/blog/', 'Blog'],
 					['https://changenow.io/jobs', 'Jobs']
 				]
 		}
@@ -50,24 +50,24 @@ export const MobileMenu = (props) => {
 
 	return (
 		<List>
-			<LogosItemsStyled key="/">
+			<LogosItemsStyled key="logos">
 				<Logos />
 			</LogosItemsStyled>
 			{
 				items.map((item) => (
-					Object.keys(item).map((title) => (
-						<>
+					Object.keys(item).map((title, i) => (
+						<div key={i}>
 							<SectionName>{title}</SectionName>
 							{
 								item[title].map(([slug, text]) => (
 									<List.Item key={slug} style={{ borderBottom: 0, padding: '0' }}>
-										<StyledHref to={`/${slug}`} className={selectedKey === slug ? 'activeLink' : ''}>
+										<StyledHref to={`${slug}`} className={selectedKey === slug ? 'activeLink' : ''}>
 											{text}
 										</StyledHref>
 									</List.Item>
 								))
 							}
-						</>
+						</div >
 					))
 				)
 				)
@@ -98,12 +98,15 @@ const SectionName = styled.p`
   	}
 `;
 
-const StyledHref = styled.a`
+const StyledHref = styled(Link)`
 	font-size: 18px;
 	display: block;
 	color: #FFFFFF;
 	line-height: 2;
 	font-weight: lighter;
+	&.activeLink {
+		border-bottom: none;
+	}
 	@media (max-width: ${props => props.theme.screen.md}) {
     	margin-bottom: 5px;
   	}
