@@ -1,31 +1,39 @@
-import { List, Menu } from "antd"
+import { Menu, Dropdown, Row, Col, Form } from "antd"
 import * as React from "react"
-import { Row, Col } from "antd"
-import { Input, AutoComplete } from "antd"
-import { SearchOutlined } from "@ant-design/icons"
-import { useState } from "react"
-import { Link, navigate } from "gatsby"
+import { graphql, navigate, StaticQuery, useStaticQuery } from "gatsby"
 import styled from "styled-components"
+import { useEffect, useState } from "react"
+import { Link } from "gatsby"
+import { Input, AutoComplete } from "antd"
+import { SelectProps } from "antd/es/select"
+import { SearchOutlined } from "@ant-design/icons"
+import changeNow from "./changeNow.svg"
+import closeIcon from './closeIcon.svg';
 
-import { Logos } from "./Logos"
+
+import academy from "./academyLogo.svg"
+
+const { Search } = Input
 
 export const MobileSearch = (props) => {
-  let data = props.data
+  const slugAndTextList = [["glossary", "Glossary"]]
   const [options, setOptions] = useState<SelectProps<object>["options"]>([])
+  const [query, setQuery] = useState('');
+  let data = props.data;
+  const textInput = React.useRef(null);
 
-  // useEffect(() => {
-  // 	const [selectedSlug] = items.find(([slug]) => pathname.includes(slug)) || [''];
-  // 	setSelectedKeys(selectedSlug);
-  // }, []);
+  const onClick = (e, { key }) => {
+    navigate(`/${key}`)
+  }
+
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
         return term.name.toLowerCase().includes(query.toLowerCase())
       })
       .map((term, i) => {
-        console.log(term, query)
         return {
-          value: term.name,
+          value: term.name.concat(` ${term.term_type !== null ? term.term_type.name : ''}`),
           label: (
             <StyledElSearch
               key={`term__${i}`}
@@ -46,6 +54,7 @@ export const MobileSearch = (props) => {
         }
       })
   }
+
   const searchArticleResult = (query: string, data) => {
     return data.allStrapiArticle.nodes
       .filter((article) => {
@@ -87,7 +96,6 @@ export const MobileSearch = (props) => {
     let articles = searchArticleResult(value, data)
     let titleAndTerms = []
     let titleAndArticles = []
-    let result
     if (terms.length > 0) {
       titleAndTerms = [
         {
@@ -112,45 +120,47 @@ export const MobileSearch = (props) => {
           ),
         },
       ]
-      result = [titleAndArticles[0]].concat(articles)
+      articles = [titleAndArticles[0]].concat(articles)
     }
-    setOptions(value ? terms.concat(result) : [])
+    setOptions(value ? terms.concat(articles) : [])
   }
 
   return (
-    <List>
-      <StyledSearch
-        placeholder="Search for anything..."
-        onSearch={async (value) => {
-          await navigate("/search", { state: { search: value } })
-          props.onClose()
-        }}
-      />
-      <Moto>Everything you need to know about the world of crypto</Moto>
-    </List>
+    <StyledMainMenu mode="horizontal" >
+      <StyledMenuItemWithoutBorder
+        key="search_moi"
+        style={{ flexGrow: 4, textAlign: "center" }}
+      >
+        <StyledAutocomplete
+          dropdownMatchSelectWidth={true}
+          options={options}
+          onSearch={handleSearch}
+          dropdownStyle={{ backgroundColor: "#2B2B37" }}
+        >
+          <Input
+            suffix={<StyledImg src={closeIcon} alt={"Close"} onClick={props.onClose}/>}
+            size="large"
+            placeholder="Search for anything..."
+            onPressEnter={async (e) => {
+              await navigate("/search", {
+                state: { search: e.target.value },
+              })
+            }}
+          />
+        </StyledAutocomplete>
+      </StyledMenuItemWithoutBorder>
+      
+    </StyledMainMenu>
   )
 }
-
-const Moto = styled.span`
-  font-style: normal;
-  font-weight: 300;
-  font-size: 30px;
-  line-height: 35px;
-  color: white;
-  padding-top: 1rem;
-`
 
 const StyledAutocompleteRow = styled(Row)`
   width: 100%;
 `
 
-const StyledSearch = styled(Input.Search)`
+const StyledAutocomplete = styled(AutoComplete)`
   width: 100%;
   height: 50px;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-bottom-width: 1px;
   margin-bottom: 1.5rem;
   border-color: ${({ theme }) => theme.color.blue.light};
 
@@ -159,16 +169,13 @@ const StyledSearch = styled(Input.Search)`
     padding-left: 0;
   }
 
-  .ant-input-suffix {
-    display: none;
-  }
+
   & .ant-input-affix-wrapper {
     flex-direction: row-reverse;
   }
 
   & .ant-input-suffix {
-    margin-left: 10px;
-    margin-right: 10px;
+   
   }
 
   .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
@@ -216,7 +223,7 @@ const StyledSearch = styled(Input.Search)`
     box-shadow: none;
   }
 
-  &.ant-input-affix-wrapper-focused {
+  & .ant-input-affix-wrapper-focused {
     box-shadow: none;
     border-right: none;
   }
@@ -232,10 +239,30 @@ const StyledSearch = styled(Input.Search)`
 
   & .ant-input-affix-wrapper {
     height: 45px;
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.color.blue.light};
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
   }
   .ant-select-selector {
     height: 100%;
   }
+`
+const StyledImg = styled.img`
+  text-align: end;
+  align-self: baseline;
+`
+
+const StyledImgContainer = styled.div`
+  height: 48px;
+  border-bottom: 1px solid #515177;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+  }
+  
 `
 
 const StyledArticleLevelSearch = styled.span`
@@ -267,34 +294,128 @@ const StyledElSearch = styled.div`
   justify-content: flex-start;
 `
 
-const LogosItemsStyled = styled(List.Item)`
+const StyledLogoLink = styled(Link)`
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 0;
-  padding-top: 0;
-  border-bottom: 0;
 `
 
-const SectionName = styled.p`
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  color: #ffffff;
-  line-height: 2;
+const StyledSearch = styled(Search)`
+  margin: 0 auto;
+  border: 0px solid ${({ theme }) => theme.color.blue.regular};
+  border-bottom: 1px solid ${({ theme }) => theme.color.blue.regular};
+  border-right-width: 0px !important;
+  box-shadow: none !important;
+  background: ${({ theme }) => theme.color.blue.regular};
+  flex-direction: row-reverse;
+  border-radius: 0;
+  vertical-align: middle;
+  width: 365px;
+  height: 51px;
+  padding: 0;
+  margin-left: 70px;
+
+  .ant-input {
+    &::placeholder {
+      color: ${({ theme }) => theme.color.gray.regular};
+    }
+  }
+
+  .ant-input-suffix {
+    .ant-input-search-icon::before {
+      display: none;
+    }
+    .ant-input-search-icon {
+      color: ${({ theme }) => theme.color.white.regular};
+      padding-left: 5px;
+    }
+  }
+
+  &:hover {
+    border-right-width: 0px !important;
+  }
+  &:focus {
+    box-shadow: none !important;
+    border-right-width: 0px !important;
+  }
+`
+
+const StyledMainMenu = styled(Menu)`
+  display: flex;
+  background: ${({ theme }) => theme.color.blue.dark};
+  border: none;
+`
+
+const StyledMenu = styled(Menu)`
+  background: #373745;
+
+  & .ant-dropdown-menu-item-disabled {
+    &:hover {
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+  & li {
+    &:hover {
+      color: #35f7a4;
+    }
+  }
+`
+
+const StyledMenuItem = styled(Menu.Item)`
+  margin: 0 14px;
+  padding: 0;
+  & a {
+    color: #fff !important;
+  }
+  &:hover {
+    border-bottom: none !important;
+  }
+`
+
+const StyledMenuItemWithoutBorder = styled(Menu.Item)`
+  margin: 0;
+  border-bottom: 0px !important;
+  display: table-cell;
+  padding: 0;
+
+  & a {
+    color: #fff !important;
+  }
+  &:hover {
+    border-bottom: 0px !important;
+  }
+`
+
+const StyledA = styled.a`
+  display: inline-block;
+  font-family: Roboto;
+  font-style: normal;
   font-weight: lighter;
-  opacity: 0.6;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 
-  @media (max-width: ${(props) => props.theme.screen.md}) {
-    margin-top: 15px;
-    margin-bottom: 5px;
+  &:hover {
+    color: #00c26f !important;
   }
 `
 
-const StyledHref = styled.a`
-  font-size: 18px;
-  display: block;
-  color: #ffffff;
-  line-height: 2;
+const StyledLink = styled(Link)`
+  display: inline-block;
+  font-family: Roboto;
+  font-style: normal;
   font-weight: lighter;
-  @media (max-width: ${(props) => props.theme.screen.md}) {
-    margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #00c26f !important;
   }
+`
+
+const ChangeNowLogo = styled.img`
+  margin-top: -4px;
 `

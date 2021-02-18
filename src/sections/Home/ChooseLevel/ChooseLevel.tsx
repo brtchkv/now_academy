@@ -41,35 +41,32 @@ export const ChooseLevel: React.FunctionComponent = () => {
           },
           767: {
             slidesPerView: 3,
-            allowTouchMove: false
-		  },
-		}}
+            allowTouchMove: false,
+          },
+        }}
       >
         <SwiperSlide>
           <ColCards md={24} xs={24}>
-              <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
-                <LevelName>Beginner</LevelName>
-                <CardDescription>
-                  Introduction to crypto: basic concepts, foundational tech,
-                  renowned projects, and popular coins.
-                </CardDescription>
-                <ActionButton to={"/beginner-level"}>Start learning</ActionButton>
-              </LeftCard>
+            <LeftCard bordered={false} cover={<CardImg src={beginner} />}>
+              <LevelName>Beginner</LevelName>
+              <CardDescription>
+                Introduction to crypto: basic concepts, foundational tech,
+                renowned projects, and popular coins.
+              </CardDescription>
+              <ActionButton to={"/beginner-level"}>Start learning</ActionButton>
+            </LeftCard>
           </ColCards>
         </SwiperSlide>
         <SwiperSlide>
           <ColCards md={24} xs={24}>
-              <CenterCard
-                bordered={false}
-                cover={<CardImg src={intermediate} />}
-              >
-                <LevelName>Intermediate</LevelName>
-                <CardDescription>
-                  A closer look at decentralized finance, complex tech used in
-                  crypto, digital markets, and trading.
-                </CardDescription>
-                <ComingSoon>Coming Soon</ComingSoon>
-              </CenterCard>
+            <CenterCard bordered={false} cover={<CardImg src={intermediate} />}>
+              <LevelName>Intermediate</LevelName>
+              <CardDescription>
+                A closer look at decentralized finance, complex tech used in
+                crypto, digital markets, and trading.
+              </CardDescription>
+              <ComingSoon>Coming Soon</ComingSoon>
+            </CenterCard>
           </ColCards>
         </SwiperSlide>
         <SwiperSlide>
@@ -108,9 +105,9 @@ const Slider = styled(Swiper)`
     .swiper-pagination-bullet-active {
       background-color: ${({ theme }) => theme.color.green.regular};
     }
-	@media (min-width: ${({ theme }) => theme.screen.sm}) {
-    	display: none;
-  	}
+    @media (min-width: ${({ theme }) => theme.screen.sm}) {
+      display: none;
+    }
   }
 `
 
@@ -141,7 +138,6 @@ const LevelCard = styled(Card)`
   & .ant-card-head-title {
     height: 250px;
   }
-
 `
 
 const CardDescription = styled.p`
@@ -176,10 +172,23 @@ const ComingSoon = styled.div`
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #fff;
+  text-align: center;
+  @media (max-width: ${(props) => props.theme.screen.md}) {
+    padding: 14px 14px;
+    font-size: 14px;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.xs}) {
+    min-width: 170px;
+  }
+
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    min-width: 207px;
+  }
 
   transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
   position: relative;
-  `
+`
 
 const ActionButton = styled(Link)`
   line-height: 14px;
@@ -193,47 +202,75 @@ const ActionButton = styled(Link)`
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #fff;
+  text-align: center;
 
-  transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
-  position: relative;
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    min-width: 207px;
+  }
 
-  &::before,
-  &::after {
-    border: 0 solid transparent;
-    box-sizing: border-box;
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 0;
-    left: 0;
+  @media (min-width: ${(props) => props.theme.screen.xs}) {
+    min-width: 170px;
   }
-  &::before {
-    border-bottom-width: 1px;
-    border-right-width: 1px;
-  }
-  &::after {
-    border-top-width: 1px;
-    border-left-width: 1px;
-  }
+
+
   &:hover {
-    color: ${({ theme }) => theme.color.green.regular};
-    border: none;
-    transition: border 0s, width 0.3s, height 0.3s;
+      color: ${({ theme }) => theme.color.green.regular};
+      border: 1px solid ${({ theme }) => theme.color.green.regular};
+      transition: all 0.5s;
   }
-  &:hover::before,
-  &:hover::after {
-    border-color: ${({ theme }) => theme.color.green.regular};
-    transition: border-color 0s, width 0.3s, height 0.3s;
-    width: 100%;
-    height: 100%;
+
+  @media (max-width: ${(props) => props.theme.screen.md}) {
+    padding: 14px 14px;
+    font-size: 14px;
   }
-  &:hover::before {
-    transition-delay: 0s, 0s, 0.3s;
+
+  @media (max-width: 325px) {
+    margin-left: 0;
+    margin-right: 0;
   }
-  &:hover::after {
-    transition-delay: 0s, 0.3s, 0s;
+
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
+    position: relative;
+
+    &::before,
+    &::after {
+      border: 0 solid transparent;
+      box-sizing: border-box;
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &::before {
+      border-bottom-width: 1px;
+      border-right-width: 1px;
+    }
+    &::after {
+      border-top-width: 1px;
+      border-left-width: 1px;
+    }
+    &:hover {
+      color: ${({ theme }) => theme.color.green.regular};
+      border: none;
+      transition: border 0s, width 0.3s, height 0.3s;
+    }
+    &:hover::before,
+    &:hover::after {
+      border-color: ${({ theme }) => theme.color.green.regular};
+      transition: border-color 0s, width 0.3s, height 0.3s;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover::before {
+      transition-delay: 0s, 0s, 0.3s;
+    }
+    &:hover::after {
+      transition-delay: 0s, 0.3s, 0s;
+    }
   }
 `
 

@@ -7,42 +7,94 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { useContext } from "react"
 import { ThemeContext } from "styled-components"
-import './styles/styles.scss';
-import Scrollbar from 'smooth-scrollbar';
+import "./styles/styles.scss"
+import Scrollbar from "smooth-scrollbar"
 
-const options = {
-  
-};
+const options = {}
 
 export const Articles = ({ articles_list }) => {
   const [scrollPostion, setScrollPostion] = useState(0)
   const articles = [
-    { img: "origins.svg", name: "Origins of Crypto", link: "/beginner-level/the-origins-of-crypto" },
-    { img: "blockchain.svg", name: "Blockchain", link: "/beginner-level/blockchain-101" },
+    {
+      img: "origins.svg",
+      name: "Origins of Crypto",
+      link: "/beginner-level/the-origins-of-crypto",
+    },
+    {
+      img: "blockchain.svg",
+      name: "Blockchain",
+      link: "/beginner-level/blockchain-101",
+    },
     { img: "bitcoin.svg", name: "Bitcoin", link: "/beginner-level/bitcoin" },
-    { img: "mining.svg", name: "Mining", link: "/beginner-level/the-basics-of-mining" },
-    { img: "consensus.svg", name: "Consensus Algorithms", link: "/beginner-level/cryptocurrency-consensus-algorithms" },
+    {
+      img: "mining.svg",
+      name: "Mining",
+      link: "/beginner-level/the-basics-of-mining",
+    },
+    {
+      img: "consensus.svg",
+      name: "Consensus Algorithms",
+      link: "/beginner-level/cryptocurrency-consensus-algorithms",
+    },
     { img: "litecoin.svg", name: "Litecoin", link: "/beginner-level/litecoin" },
-    { img: "decentralisation.svg", name: "Decentralization as a concept", link: "/beginner-level/decentralization-as-a-concept" },
-    { img: "contracts.svg", name: "Smart Contracts & Dapps", link: "/beginner-level/smart-contracts-and-dapps" },
+    {
+      img: "decentralisation.svg",
+      name: "Decentralization as a concept",
+      link: "/beginner-level/decentralization-as-a-concept",
+    },
+    {
+      img: "contracts.svg",
+      name: "Smart Contracts & Dapps",
+      link: "/beginner-level/smart-contracts-and-dapps",
+    },
     { img: "ethereum.svg", name: "Ethereum", link: "/beginner-level/ethereum" },
-    { img: "funds.svg", name: "Crypto Wallets and Funds Safety", link: "/beginner-level/crypto-wallets-and-asset-security" },
-    { img: "scaling.svg", name: "Scaling in Blockchain", link: "/beginner-level/blockchain-scaling" },
+    {
+      img: "funds.svg",
+      name: "Crypto Wallets and Funds Safety",
+      link: "/beginner-level/crypto-wallets-and-asset-security",
+    },
+    {
+      img: "scaling.svg",
+      name: "Scaling in Blockchain",
+      link: "/beginner-level/blockchain-scaling",
+    },
     { img: "eos.svg", name: "EOS", link: "/beginner-level/eos" },
-    { img: "economy.svg", name: "Crypto Economy & Tokenomics", link: "/beginner-level/crypto-economy-and-tokenomics" },
-    { img: "trading.svg", name: "Crypto Exchanges & Trading", link: "/beginner-level/cryptocurrency-exchanges-and-trading" },
-    { img: "usdt.svg", name: "USDT Tether", link: "/beginner-level/usdt-and-stablecoins" },
-    { img: "cbdc.svg", name: "Crypto Legislation & CBDC", link: "/beginner-level/crypto-legislation" },
-    { img: "finance.svg", name: "Blockchain in Traditional Finance", link: "/beginner-level/blockchain-in-traditional-finance" },
+    {
+      img: "economy.svg",
+      name: "Crypto Economy & Tokenomics",
+      link: "/beginner-level/crypto-economy-and-tokenomics",
+    },
+    {
+      img: "trading.svg",
+      name: "Crypto Exchanges & Trading",
+      link: "/beginner-level/cryptocurrency-exchanges-and-trading",
+    },
+    {
+      img: "usdt.svg",
+      name: "USDT Tether",
+      link: "/beginner-level/usdt-and-stablecoins",
+    },
+    {
+      img: "cbdc.svg",
+      name: "Crypto Legislation & CBDC",
+      link: "/beginner-level/crypto-legislation",
+    },
+    {
+      img: "finance.svg",
+      name: "Blockchain in Traditional Finance",
+      link: "/beginner-level/blockchain-in-traditional-finance",
+    },
     { img: "ripple.svg", name: "Ripple", link: "/beginner-level/ripple" },
     {
       img: "review.svg",
       name: "Prominent Blockchain Projects & Platforms Review",
-      link: "/beginner-level/prominent-blockchain-projects-and-platforms-review"
+      link:
+        "/beginner-level/prominent-blockchain-projects-and-platforms-review",
     },
     {
-      img: "privacy.svg", name: "Privacy, Anonymity & Data Protection",
-      link: "/beginner-level/privacy-anonymity-and-data-protection"
+      img: "privacy.svg",
+      name: "Privacy, Anonymity & Data Protection",
+      link: "/beginner-level/privacy-anonymity-and-data-protection",
     },
     { img: "monero.svg", name: "Monero", link: "/beginner-level/monero" },
   ]
@@ -56,7 +108,7 @@ export const Articles = ({ articles_list }) => {
   //   })
   // });
 
-  const themeContext = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext)
 
   function importAll(r) {
     let images = {}
@@ -91,7 +143,7 @@ export const Articles = ({ articles_list }) => {
     const docHeight = getDocHeight()
 
     const totalDocScrollLength = docHeight - winHeight
-    const scrollPostion = ((scrollTop / totalDocScrollLength) * 100)
+    const scrollPostion = (scrollTop / totalDocScrollLength) * 100
 
     setScrollPostion(scrollPostion + 7)
   }
@@ -108,58 +160,68 @@ export const Articles = ({ articles_list }) => {
   }
 
   return (
-      <Row>
-        <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
-          <Row gutter={[16, 24]}>
-            <ResposiveStepCol lg={{ span: 3 }} md={{ span: 4 }} xs={{ span: 0 }}></ResposiveStepCol>
-            <ResponsiveTitleCol lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
-              <Title>Concept</Title>
-            </ResponsiveTitleCol>
-            <ResponsiveMiddleTitleCol lg={{ span: 6 }} md={{ span: 0 }} xs={{ span: 0 }}>
-              <Title>Technology</Title>
-            </ResponsiveMiddleTitleCol>
-            <ResponsiveTitleCol lg={{ span: 7 }} md={{ span: 0 }} xs={{ span: 0 }}>
-              <Title>Coin</Title>
-            </ResponsiveTitleCol>
-          </Row>
-          <Row gutter={[16, 24]} justify="start" className={'tableContent'}>
-            {articles.map((article, i) => (
-              <>
-                {i % 3 === 0 && (
-                  <ColSpanWrapper
-                    lg={{ span: 3 }}
-                    style={{ alignSelf: "center" }}
-                    key={`title__${i}`}
-                    md={{ span: 24 }}
-                    xs={{ span: 24 }}
-                  >
-                    <Title>Step {i / 3 + 1}</Title>
-                  </ColSpanWrapper>
-                )
-                }
-                <CardWrapper key={`article__${i}`}>
-                  <Col lg={{ span: 24 }} style={{ padding: 0 }} >
-                    <CardLink to={article.link}>
-                      <AricleImg img={images[article.img]}>
-                        <ArticleTitle>{article.name}</ArticleTitle>
-                      </AricleImg>
-                    </CardLink>
-                  </Col>
-                </CardWrapper>
-              </>
-            ))}
-          </Row>
-        </GridFixCol>
-        <Col lg={{ span: 1 }} md={{ span: 0 }} xs={{ span: 0 }}>
-          <Progress />
-          <ProgressLine scroll={scrollPostion + "%"} />
-        </Col>
-      </Row>
+    <Row>
+      <GridFixCol lg={{ span: 23 }} md={{ span: 24 }}>
+        <Row gutter={[16, 24]}>
+          <ResposiveStepCol
+            lg={{ span: 3 }}
+            md={{ span: 4 }}
+            xs={{ span: 0 }}
+          ></ResposiveStepCol>
+          <ResponsiveTitleCol
+            lg={{ span: 7 }}
+            md={{ span: 0 }}
+            xs={{ span: 0 }}
+          >
+            <Title>Concept</Title>
+          </ResponsiveTitleCol>
+          <ResponsiveMiddleTitleCol
+            lg={{ span: 6 }}
+            md={{ span: 0 }}
+            xs={{ span: 0 }}
+          >
+            <Title>Technology</Title>
+          </ResponsiveMiddleTitleCol>
+          <ResponsiveTitleCol
+            lg={{ span: 7 }}
+            md={{ span: 0 }}
+            xs={{ span: 0 }}
+          >
+            <Title>Coin</Title>
+          </ResponsiveTitleCol>
+        </Row>
+        <Row gutter={[16, 24]} justify="start" className={"tableContent"}>
+          {articles.map((article, i) => (
+            <>
+              {i % 3 === 0 && (
+                <ColSpanWrapper
+                  lg={{ span: 3 }}
+                  style={{ alignSelf: "center" }}
+                  key={`title__${i}`}
+                  md={{ span: 24 }}
+                  xs={{ span: 24 }}
+                >
+                  <Title>Step {i / 3 + 1}</Title>
+                </ColSpanWrapper>
+              )}
+              <CardWrapper key={`article__${i}`}>
+                <Col lg={{ span: 24 }} style={{ padding: 0 }}>
+                  <CardLink to={article.link}>
+                    <AricleImg img={images[article.img]}>
+                      <ArticleTitle>{article.name}</ArticleTitle>
+                    </AricleImg>
+                  </CardLink>
+                </Col>
+              </CardWrapper>
+            </>
+          ))}
+        </Row>
+      </GridFixCol>
+    </Row>
   )
 }
 
 const ResponsiveMiddleTitleCol = styled(Col)`
-  
   @media (min-width: 1215px) {
     display: block;
     flex: 0 0 27%;
@@ -173,7 +235,7 @@ const ResponsiveTitleCol = styled(Col)`
     flex: 0 0 25%;
     max-width: 25%;
   }
-  
+
   @media (min-width: 1215px) {
     display: block;
     flex: 0 0 29.16666667%;
@@ -182,13 +244,12 @@ const ResponsiveTitleCol = styled(Col)`
 `
 
 const ResposiveStepCol = styled(Col)`
-
   @media (min-width: 1024px) {
     display: block;
     flex: 0 0 16.66666667%;
     max-width: 16.66666667%;
   }
-  
+
   @media (min-width: 1215px) {
     display: block;
     flex: 0 0 12.5%;
@@ -232,8 +293,12 @@ const AricleImg = styled.div`
 `
 
 const CardLink = styled(Link)`
-  transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
-
+  &:hover::before,
+  &:hover::after {
+    border-color: ${({ theme }) => theme.color.green.regular};
+    width: 100%;
+    height: 100%;
+  }
   &::before,
   &::after {
     border: 0 solid transparent;
@@ -258,23 +323,31 @@ const CardLink = styled(Link)`
     color: #fff;
     border: none;
   }
-  &:hover::before,
-  &:hover::after {
-    border-color: ${({ theme }) => theme.color.green.regular};
-    transition: border-color 0s, width 0.3s, height 0.3s;
-    width: 100%;
-    height: 100%;
-  }
-  &:hover::before {
-    transition-delay: 0s, 0s, 0.3s;
-  }
-  &:hover::after {
-    transition-delay: 0s, 0.3s, 0s;
+  @media (min-width: ${(props) => props.theme.screen.md}) {
+    transition: ${({ theme }) => theme.color.green.regular} 0.3s 0.0833333333s;
+    &:hover::before,
+    &:hover::after {
+      border-color: ${({ theme }) => theme.color.green.regular};
+      transition: border-color 0s, width 0.3s, height 0.3s;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover::before {
+      transition-delay: 0s, 0s, 0.3s;
+    }
+    &:hover::after {
+      transition-delay: 0s, 0.3s, 0s;
+    }
   }
 `
 
 const ProgressLine = styled.div`
-  background: linear-gradient(91deg, #00C26F ${(props) => props.scroll}, #515177 calc(${(props) => props.scroll} + 6%),  transparent 0);
+  background: linear-gradient(
+    91deg,
+    #00c26f ${(props) => props.scroll},
+    #515177 calc(${(props) => props.scroll} + 6%),
+    transparent 0
+  );
   width: 3%;
   top: 40px;
   height: 96%;
@@ -295,7 +368,7 @@ const ColSpanWrapper = styled(Col)`
     flex: 0 0 16.66666667%;
     max-width: 16.66666667%;
   }
-  
+
   @media (min-width: 1215px) {
     display: block;
     flex: 0 0 12.5%;

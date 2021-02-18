@@ -34,7 +34,7 @@ const Article = ({ data, pageContext }) => {
 	);
 	return (
 		<Layout>
-			<Section>
+			<>
 				<Container>
 					<Row>
 						<Col lg={{span: 24}} xs={{span: 0}} md={{span: 0}}>
@@ -54,7 +54,7 @@ const Article = ({ data, pageContext }) => {
 						</StyledArticleCol>
 					</Row>
 				</Container>
-			</Section>
+			</>
 		</Layout>
 	);
 };

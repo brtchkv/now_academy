@@ -258,6 +258,7 @@ const AdaptiveMediaRow = styled(AdaptiveRow)`
   @media (max-width: ${(props) => props.theme.screen.sm}) {
     padding-bottom: inherit;
     padding-top: inherit;
+    justify-content: space-between;
   }
 `
 

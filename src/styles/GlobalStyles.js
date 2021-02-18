@@ -607,8 +607,18 @@ img:hover {
 }
 
 .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-    background-color: ${({theme}) => theme.color.blue.light};
+    background-color: inherit;
 }
+
+h4 {
+    strong {
+        font-weight: 300 !important;
+    }
+}
+
+/* .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: #2b2b36;
+} */
 
 background: ${({theme}) => theme.color.blue.regular};
 

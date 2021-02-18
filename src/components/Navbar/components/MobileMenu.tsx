@@ -13,8 +13,8 @@ export const MobileMenu = (props) => {
 			'Learn':
 				[
 					['/beginner-level', 'Beginner'],
-					['/intermediate', 'Intermediate'],
-					['/advanced', 'Advanced'],
+					['#', 'Intermediate'],
+					['#', 'Advanced'],
 				]
 		},
 		{
@@ -32,7 +32,7 @@ export const MobileMenu = (props) => {
 				[
 					['https://changenow.io/terms-of-use', 'Terms of Use'],
 					['https://changenow.io/privacy-policy', 'Privacy Policy'],
-					['https://changenow.io/business-ethics', 'NOW responsibility'],
+					['https://changenow.io/business-ethics', 'NOW Responsibility'],
 					['https://changenow.io/blog/', 'Blog'],
 					['https://changenow.io/jobs', 'Jobs']
 				]
@@ -60,7 +60,7 @@ export const MobileMenu = (props) => {
 							<SectionName>{title}</SectionName>
 							{
 								item[title].map(([slug, text]) => (
-									<List.Item key={slug} style={{ borderBottom: 0, padding: '0' }}>
+									<List.Item key={text} style={{ borderBottom: 0, padding: '0' }}>
 										<StyledHref to={`${slug}`} className={selectedKey === slug ? 'activeLink' : ''}>
 											{text}
 										</StyledHref>

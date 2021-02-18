@@ -18,12 +18,12 @@ export const Logos: React.FunctionComponent = () => {
 				</StyledLink>
 			</Col>
 			<Col span={24} style={{paddingBottom: '1rem'}}>
-				<StyledLink to="/">
+				<StyledLink to="https://changenow.io/">
 					<img src={changeNow} alt={"ChangeNow"} style={{ width: '137px' }} />
 				</StyledLink>
 			</Col>
 			<Col span={24} style={{paddingBottom: '1rem'}}>
-				<StyledLink to="/">
+				<StyledLink to="/glossary">
 					<img src={glossary} alt={"Glossary"} style={{ width: '108px' }} />
 				</StyledLink>
 			</Col>

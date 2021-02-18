@@ -18,7 +18,10 @@ const StyledP = styled.p`
 	line-height: 140%;
 	text-align: center;
 	font-weight: lighter;
-	color: ${({theme}) => theme.color.gray.regular}
+	color: ${({theme}) => theme.color.gray.regular};
+	@media (max-width: ${({ theme }) => theme.screen.xs}) {
+		text-align: left;
+  	}
 `;
 
 const StyledH = styled.h1`
@@ -26,4 +29,7 @@ const StyledH = styled.h1`
 	text-align: center;
 	font-weight: lighter;
 	font-size: 38px;
+	@media (max-width: ${({ theme }) => theme.screen.xs	}) {
+		text-align: left;
+  	}
 `;

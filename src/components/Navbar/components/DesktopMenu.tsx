@@ -142,7 +142,6 @@ export const DesktopMenu = (props) => {
           dropdownMatchSelectWidth={252}
           options={options}
           onSearch={handleSearch}
-          onPressEnter={handleSearch}
         >
           <Input
             suffix={<SearchOutlined />}
