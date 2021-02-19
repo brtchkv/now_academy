@@ -23,6 +23,16 @@ export const DesktopMenu = (props) => {
     navigate(`/${key}`)
   }
 
+  const getStep = (slug, level) => {
+    let foundArticle = props.steps.find(a => a.name.toLowerCase() === slug.toLowerCase());
+    console.log(foundArticle)
+    if (foundArticle) {
+      return `step ${foundArticle.step}`;
+    } else {
+      return level;
+    }
+  }
+
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
       .filter((term) => {
@@ -40,12 +50,12 @@ export const DesktopMenu = (props) => {
                 })
               }}
             >
-              <StyledAutocompleteRow>
+              <StyledAutocompleteRowWithPadding>
                 <Col span={6}></Col>
                 <Col span={18}>
                   <span>{term.name}</span>
                 </Col>
-              </StyledAutocompleteRow>
+              </StyledAutocompleteRowWithPadding>
             </StyledElSearch>
           ),
         }
@@ -58,6 +68,7 @@ export const DesktopMenu = (props) => {
         return article.title.toLowerCase().includes(query.toLowerCase())
       })
       .map((article, i) => {
+        console.log(props.steps.find(a => a.name.toLowerCase() === article.title.toLowerCase()));
         return {
           value: article.title,
           label: (
@@ -69,19 +80,19 @@ export const DesktopMenu = (props) => {
                 })
               }}
             >
-              <StyledAutocompleteRow>
+              <StyledAutocompleteRowWithPadding>
                 <Col span={6}></Col>
                 <Col span={18}>
                   <StyledAutocompleteRow>
                     <Col span={24}>{article.title}</Col>
                     <Col span={24}>
                       <StyledArticleLevelSearch>
-                        {article.level.name}
+                      {getStep(article.slug, article.level.name)}
                       </StyledArticleLevelSearch>
                     </Col>
                   </StyledAutocompleteRow>
                 </Col>
-              </StyledAutocompleteRow>
+              </StyledAutocompleteRowWithPadding>
             </StyledElSearch>
           ),
         }
@@ -174,6 +185,11 @@ export const DesktopMenu = (props) => {
   )
 }
 
+const StyledAutocompleteRowWithPadding = styled(Row)`
+  width: 100%;
+  padding-bottom: 20px;
+`
+
 const StyledAutocompleteRow = styled(Row)`
   width: 100%;
 `
@@ -256,6 +272,7 @@ const StyledAutocomplete = styled(AutoComplete)`
     height: 45px;
   }
 `
+
 
 const StyledArticleLevelSearch = styled.span`
   font-style: normal;

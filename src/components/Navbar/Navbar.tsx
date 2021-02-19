@@ -32,7 +32,32 @@ export const Navbar: React.FunctionComponent = () => {
   }
   const onCloseSearch = () => {
     setSearchVisible(false)
+
   }
+
+  const stepsAndArticle = [
+	  {name: "the-origins-of-crypto", step: 1},
+	  {name: "blockchain-101", step: 1},
+	  {name: "Bitcoin", step: 1},
+	  {name: "the-basics-of-mining", step: 2},
+	  {name: "cryptocurrency-consensus-algorithms", step: 2},
+	  {name: "Litecoin", step: 2},
+	  {name: "decentralization-as-a-concept", step: 3},
+	  {name: "smart-contracts-and-dapps", step: 3},
+	  {name: "Ethereum", step: 3},
+	  {name: "crypto-wallets-and-asset-security", step: 4},
+	  {name: "blockchain-scaling", step: 4},
+	  {name: "EOS", step: 4},
+	  {name: "crypto-economy-and-tokenomics", step: 5},
+	  {name: "cryptocurrency-exchanges-and-trading", step: 5},
+	  {name: "usdt-and-stablecoins", step: 5},
+	  {name: "crypto-legislation & CBDC", step: 6},
+	  {name: "blockchain-in-traditional-finance", step: 6},
+	  {name: "Ripple", step: 6},
+	  {name: "prominent-blockchain-projects-and-platforms-review", step: 7},
+	  {name: "privacy-anonymity-and-data-protection", step: 7},
+	  {name: "Monero", step: 7},
+  ]
 
   const data = useStaticQuery(graphql`
     query SearchQuery {
@@ -40,6 +65,7 @@ export const Navbar: React.FunctionComponent = () => {
         nodes {
           id
           title
+		  slug
           level {
             name
             slug
@@ -61,9 +87,9 @@ export const Navbar: React.FunctionComponent = () => {
   return (
     <StyledNav>
       <Container>
-        <Header className="before-navbar">
+        <Header className="before-navbar" >
           <Col lg={{ span: 24 }} xs={{ span: 0 }} md={{ span: 0 }}>
-            <DesktopMenu data={data} />
+            <DesktopMenu data={data} steps={stepsAndArticle}/>
           </Col>
 
           <Col lg={{ span: 0 }} xs={{ span: 24 }} md={{ span: 0 }}>
@@ -102,7 +128,7 @@ export const Navbar: React.FunctionComponent = () => {
                   }}
                   bodyStyle={{ padding: "20px", paddingTop: "15px" }}
                 >
-                  <MobileSearch data={data} onClose={onCloseSearch} showInput={showSearch}/>
+                  <MobileSearch data={data} onClose={onCloseSearch} showInput={showSearch} steps={stepsAndArticle}/>
                 </StyledDrawer>
                 <StyledSearchOutlined
                   style={{
@@ -169,7 +195,7 @@ export const Navbar: React.FunctionComponent = () => {
                       }}
                       bodyStyle={{ padding: "20px", paddingTop: "15px" }}
                     >
-                      <MobileSearch data={data} onClose={onCloseSearch} showInput={showSearch}/>
+                      <MobileSearch data={data} onClose={onCloseSearch} showInput={showSearch} steps={stepsAndArticle}/>
                     </StyledDrawer>
                     <StyledSearchOutlined
                       style={{

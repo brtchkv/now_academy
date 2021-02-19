@@ -610,6 +610,15 @@ img:hover {
     background-color: inherit;
 }
 
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+	background-color: inherit;
+}
+
+.ant-select-item {
+    min-height: 22px;
+    padding-bottom: 0px;    
+}
+
 h4 {
     strong {
         font-weight: 300 !important;

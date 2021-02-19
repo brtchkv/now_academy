@@ -9,8 +9,6 @@ import { SelectProps } from "antd/es/select"
 import { SearchOutlined } from "@ant-design/icons"
 import changeNow from "./changeNow.svg"
 import closeIcon from './closeIcon.svg';
-
-
 import academy from "./academyLogo.svg"
 
 const { Search } = Input
@@ -22,9 +20,18 @@ export const MobileSearch = (props) => {
   let data = props.data;
   const textInput = React.useRef(null);
 
-  const onClick = (e, { key }) => {
-    navigate(`/${key}`)
+  useEffect(() => {setQuery(''); setOptions([])}, [props.showInput]);
+
+  const getStep = (slug, level) => {
+    let foundArticle = props.steps.find(a => a.name.toLowerCase() === slug.toLowerCase());
+    console.log(foundArticle)
+    if (foundArticle) {
+      return `step ${foundArticle.step}`;
+    } else {
+      return level;
+    }
   }
+
 
   const searchTermsResult = (query: string, data) => {
     return data.allStrapiTerm.nodes
@@ -43,12 +50,12 @@ export const MobileSearch = (props) => {
                 })
               }}
             >
-              <StyledAutocompleteRow>
-                <Col span={6}></Col>
-                <Col span={18}>
+              <StyledAutocompleteRowWithPadding>
+                <Col xs={{span: 0}} md={{span: 6}}></Col>
+                <Col xs={{span: 24}} md={{span: 18}}>
                   <span>{term.name}</span>
                 </Col>
-              </StyledAutocompleteRow>
+              </StyledAutocompleteRowWithPadding>
             </StyledElSearch>
           ),
         }
@@ -73,16 +80,16 @@ export const MobileSearch = (props) => {
               }}
             >
               <StyledAutocompleteRow>
-                <Col span={6}></Col>
-                <Col span={18}>
-                  <StyledAutocompleteRow>
+                <Col xs={{span: 0}} md={{span: 6}}></Col>
+                <Col xs={{span: 24}} md={{span: 18}}>
+                  <StyledAutocompleteRowWithPadding>
                     <Col span={24}>{article.title}</Col>
-                    <Col span={24}>
+                    <Col xs={{span: 0}} md={{span: 24}}>
                       <StyledArticleLevelSearch>
-                        {article.level.name}
+                        {getStep(article.slug, article.level.name)}
                       </StyledArticleLevelSearch>
                     </Col>
-                  </StyledAutocompleteRow>
+                  </StyledAutocompleteRowWithPadding>
                 </Col>
               </StyledAutocompleteRow>
             </StyledElSearch>
@@ -126,7 +133,7 @@ export const MobileSearch = (props) => {
   }
 
   return (
-    <StyledMainMenu mode="horizontal" >
+    <StyledMainMenu mode="horizontal">
       <StyledMenuItemWithoutBorder
         key="search_moi"
         style={{ flexGrow: 4, textAlign: "center" }}
@@ -156,6 +163,11 @@ export const MobileSearch = (props) => {
 
 const StyledAutocompleteRow = styled(Row)`
   width: 100%;
+`
+
+const StyledAutocompleteRowWithPadding = styled(Row)`
+  width: 100%;
+	padding-bottom: 20px;
 `
 
 const StyledAutocomplete = styled(AutoComplete)`
